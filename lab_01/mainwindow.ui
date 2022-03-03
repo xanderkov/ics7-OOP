@@ -68,11 +68,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="scaleEdit">
-        <property name="placeholderText">
-         <string>Коэфицент масштабирования</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="scaleEdit"/>
       </item>
       <item>
        <widget class="QPushButton" name="scaleButton">
@@ -102,25 +98,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="xTransferEdit">
-        <property name="placeholderText">
-         <string>x перенос</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="xTransferEdit"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="yTransferEdit">
-        <property name="placeholderText">
-         <string>y перенос</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="yTransferEdit"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="zTransferEdit">
-        <property name="placeholderText">
-         <string>z перенос</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="zTransferEdit"/>
       </item>
       <item>
        <widget class="QPushButton" name="trasferButton">
@@ -150,25 +134,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="xAlphaEdit">
-        <property name="placeholderText">
-         <string>x угол</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="xAngleEdit"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="yAlphaEdit">
-        <property name="placeholderText">
-         <string>y угол</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="yAngleEdit"/>
       </item>
       <item>
-       <widget class="QLineEdit" name="zAlphaEdit">
-        <property name="placeholderText">
-         <string>z угол</string>
-        </property>
-       </widget>
+       <widget class="QDoubleSpinBox" name="zAngleEdit"/>
       </item>
       <item>
        <spacer name="verticalSpacer_4">

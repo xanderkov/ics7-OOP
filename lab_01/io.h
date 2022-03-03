@@ -8,6 +8,7 @@
 #include "constants.h"
 #include "figure.h"
 #include "matrix.h"
+#include "figure_conventions.h"
 
 typedef FILE* file_adress;
 

@@ -20,6 +20,27 @@ void rewind_file(file_adress file)
     rewind(file);
 }
 
+rc_type read_line_point(file_adress file, point_t &p)
+{
+    int n;
+    double x, y, z;
+    rc_type rc = ERR_INPUT;
+    if (fscanf(file, "%d%lf%lf%lf", &n, &x, &y, &z) == 4)
+    {
+        set_point(p, x, y, z, n);
+        rc = OK;
+    }
+    return rc;
+}
+
+rc_type read_line_matrix(file_adress file, int &mi, int &mj)
+{
+    rc_type rc = ERR_INPUT;
+    if (fscanf(file, "%d->%d", &mi, &mj) == 2)
+        rc = OK;
+    return rc;
+}
+
 rc_type allocate_array(point_t *&arr, size_t n)
 {
     point_t *buf = new struct point[n];
@@ -56,6 +77,7 @@ rc_type create_array(point_t *arr, size_t n, file_adress file)
         else
             copy_point(arr[i], p);
     }
+    return rc;
 }
 
 rc_type create_matrix(matrix_t matrix, size_t n, file_adress file)
@@ -71,24 +93,23 @@ rc_type create_matrix(matrix_t matrix, size_t n, file_adress file)
     return OK;
 }
 
-void free_figure(struct figure &figure);
 
-rc_type allocate_figure(figure_t &figure, size_t n)
+rc_type allocate_fig(figure_t &fig, size_t n)
 {
-    rc_type rc = allocate_array(figure.arr, n);
+    rc_type rc = allocate_array(fig.arr, n);
     if (rc) return rc;
-    rc = allocate_matrix(figure.matrix, n);
+    rc = allocate_matrix(fig.matrix, n);
     if (rc)
-        free_figure(figure);
+        free_fig(fig);
     return rc;
 }
 
-rc_type create_figure(figure_t &figure, size_t n, file_adress file)
+rc_type create_fig(figure_t &fig, size_t n, file_adress file)
 {
     rc_type rc = OK;
-    rc = create_array(figure.arr, n, file);
+    rc = create_array(fig.arr, n, file);
     if (!rc)
-        rc = create_matrix(figure.matrix, n, file);
+        rc = create_matrix(fig.matrix, n, file);
     return rc;
 }
 
@@ -97,19 +118,20 @@ rc_type read_from_file(struct figure &fig, file_adress file)
     if (!file)
         return ERR_EMPTY;
     rc_type rc = OK;
-    figure figure = init_figure();
-    rc = count_points(figure.n, file);
+    figure fig_copy = init_fig();
+    rc = count_points(fig_copy.n, file);
     if (rc)
         return rc;
-    rc = allocate_figure(figure, figure.n);
+    rc = allocate_fig(fig_copy, fig_copy.n);
     if (rc)
         return rc;
-    rc = create_figure(figure, figure.n, file);
+    rc = create_fig(fig_copy, fig_copy.n, file);
     if (!rc)
     {
-        free_figure(figure);
-        copy_figure(figure, fig);
+        free_fig(fig_copy);
+        copy_fig(fig, fig_copy);
     }
     else
-        free_figure(fig);
+        free_fig(fig);
+    return rc;
 }

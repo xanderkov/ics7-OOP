@@ -1,5 +1,17 @@
 #include "figure.h"
 
+size_t &get_fig_n(struct figure &fig)
+{
+    return fig.n;
+}
+
+
+int is_empty(struct figure &fig)
+{
+    return !(fig.arr && fig.matrix && get_fig_n(fig));
+}
+
+
 void free_fig(struct figure &fig)
 {
     if (fig.arr)
@@ -11,6 +23,8 @@ void free_fig(struct figure &fig)
     fig.matrix = NULL;
     fig.arr = NULL;
 }
+
+
 figure_t init_fig()
 {
     figure_t fig;
@@ -38,7 +52,7 @@ void set_fig_n(figure_t &fig, size_t n)
 }
 
 
-void copy_figure(figure_t &fig, figure_t &work)
+void copy_fig(figure_t &fig, figure_t &work)
 {
     fig.n = work.n;
     fig.arr = work.arr;

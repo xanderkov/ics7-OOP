@@ -38,7 +38,14 @@ void MainWindow::on_fileButton_clicked()
 
 void MainWindow::on_scaleButton_clicked()
 {
-
+    double km = ui->scaleEdit->value();
+    dataaction.scale.k = km;
+    rc_type rc = controller(scene, SCALE, dataaction);
+    if (rc)
+        print_warning(rc);
+    rc = controller(scene, DRAW, dataaction);
+    if (rc)
+        print_warning(rc);
 }
 
 
