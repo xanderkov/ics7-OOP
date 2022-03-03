@@ -9,18 +9,25 @@ rc_type controller(myscene_t scene, rc_type action_number, action_t action)
     {
         case DOWNLOAD:
             rc = download_model(fig, action);
+            break;
         case MOVE:
             rc = move_fig(fig, action);
+            break;
         case ROTATE:
             rc = rotation_fig(fig, action);
+            break;
         case SCALE:
             rc = scale_fig(fig, action);
+            break;
         case DELETE_NUM:
             clear_fig(fig);
+            break;
         case DRAW:
             draw_fig(fig, scene);
+            break;
         default:
             rc = ERR_PARAMETR;
+            break;
     }
     return rc;
 }

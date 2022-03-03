@@ -51,18 +51,41 @@ void MainWindow::on_scaleButton_clicked()
 
 void MainWindow::on_trasferButton_clicked()
 {
+    double dx = ui->xTransferEdit->value();
+    double dy = ui->yTransferEdit->value();
+    double dz = ui->zTransferEdit->value();
+    dataaction.move.dx = dx;
+    dataaction.move.dy = dy;
+    dataaction.move.dz = dz;
 
+    rc_type rc = controller(scene, MOVE, dataaction);
+    if (rc) print_warning(rc);
+    rc = controller(scene, DRAW, dataaction);
+    if (rc) print_warning(rc);
 }
 
 
 void MainWindow::on_angleButton_clicked()
 {
+    double ax = ui->xAngleEdit->value();
+    double ay = ui->yAngleEdit->value();
+    double az = ui->zAngleEdit->value();
+    dataaction.rotation.ax = ax;
+    dataaction.rotation.ay = ay;
+    dataaction.rotation.az = az;
 
+    rc_type rc =controller(scene, ROTATE, dataaction);
+    if (rc) print_warning(rc);
+    rc = controller(scene, DRAW, dataaction);
+    if (rc) print_warning(rc);
 }
 
 
 void MainWindow::on_returnButton_clicked()
 {
-
+    rc_type rc = controller(scene, DELETE_NUM, dataaction);
+    if (rc) print_warning(rc);
+    rc = controller(scene, DRAW, dataaction);
+    if (rc) print_warning(rc);
 }
 
