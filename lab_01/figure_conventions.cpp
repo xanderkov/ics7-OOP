@@ -89,17 +89,11 @@ void rotation(struct point &a, struct point c, alpha_t alpha)
     double ay = get_alphay(alpha);
     double az = get_alphaz(alpha);
     if (az != 0)
-    {
          rotation_az(a,c,az);
-    }
     if (ax != 0)
-    {
          rotation_ax(a,c,ax);
-    }
     if (ay != 0)
-    {
          rotation_ay(a,c,ay);
-    }
 }
 
 rc_type rotation_fig(figure_t &fig, action_t act)
@@ -159,6 +153,6 @@ void draw_model(figure_t fig, myscene_t scene)
         draw_point_scene(scene, get_point(fig, i));
     for (size_t i = 0; i < get_fig_n(fig); i++)
         for(size_t j = 0; j < i + 1; j++)
-            if (get_matrix_el(fig, i, j))
+            if (get_matrix_el(fig, i, j) != 0)
                 draw_line_scene(scene, get_point(fig, i), get_point(fig, j));
 }

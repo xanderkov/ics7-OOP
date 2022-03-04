@@ -72,7 +72,7 @@ rc_type create_array(point_t *arr, size_t n, file_adress file)
     rc_type rc = OK;
     for (size_t i = 0; i < n && !rc; i++)
     {
-        if (read_line_point(file, p))
+        if (read_line_point(file, p) != OK)
             rc = ERR_INPUT;
         else
             copy_point(arr[i], p);
@@ -85,7 +85,7 @@ rc_type create_matrix(matrix_t matrix, size_t n, file_adress file)
     if (!file || !n || !matrix)
         return ERR_INPUT;
     int mi, mj;
-    while (!(read_line_matrix(file, mi, mj)))
+    while (read_line_matrix(file, mi, mj) == OK)
     {
         matrix[mi - 1][mj - 1] = 1;
         matrix[mj - 1][mi - 1] = 1;
@@ -126,9 +126,9 @@ rc_type read_from_file(struct figure &fig, file_adress file)
     if (rc)
         return rc;
     rc = create_fig(fig_copy, fig_copy.n, file);
-    if (!rc)
+    if (rc == OK)
     {
-        free_fig(fig_copy);
+        free_fig(fig);
         copy_fig(fig, fig_copy);
     }
     else

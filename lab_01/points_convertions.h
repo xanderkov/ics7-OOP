@@ -19,7 +19,7 @@ struct data
     struct
     {
         double k;
-    } scale ;
+    } scale;
     struct
     {
         double dx;
