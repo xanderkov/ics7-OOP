@@ -1,18 +1,23 @@
 #include "figure.h"
+/*
+#include "point.h"
+#include "matrix.h"
+*/
 
-size_t &get_fig_n(struct figure &fig)
+
+size_t &get_fig_n(figure_t &fig)
 {
     return fig.n;
 }
 
 
-int is_empty(struct figure &fig)
+int is_empty(figure_t &fig)
 {
     return !(fig.arr && fig.matrix && get_fig_n(fig));
 }
 
 
-void free_fig(struct figure &fig)
+void free_fig(figure_t &fig)
 {
     if (fig.arr)
         delete [] fig.arr;
@@ -44,7 +49,7 @@ void set_fig_matrix(figure_t &fig, matrix_t mt)
 {
     fig.matrix = mt;
 }
-void set_fig_arr(figure_t &fig, point_t *arr)
+void set_fig_arr(figure_t &fig, point *arr)
 {
     fig.arr = arr;
 }

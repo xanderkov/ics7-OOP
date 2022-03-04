@@ -15,7 +15,7 @@ typedef FILE* file_adress;
 rc_type open_file(file_adress &file, const char *filename);
 void close_file(file_adress file);
 
-void free_figure(struct figure &figure);
-int read_from_file(struct figure &figure, file_adress file);
+void free_figure(figure_t &figure);
+int read_from_file(figure_t &figure, file_adress file);
 
 #endif // IO_H

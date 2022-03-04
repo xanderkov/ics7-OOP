@@ -6,16 +6,14 @@
 #include "point.h"
 #include "math.h"
 
-typedef struct myscene myscene_t;
-
-struct myscene
+struct myscene_t
 {
     QGraphicsScene *scene;
 };
 
 
-void draw_line_scene(myscene_t scene, point_t p1, point_t p2);
-void draw_point_scene(myscene_t scene, point_t p1);
+void draw_line_scene(myscene_t scene, point p1, point p2);
+void draw_point_scene(myscene_t scene, point p1);
 void clear_scene(myscene_t scene);
 
 #endif // MYSCENE_H

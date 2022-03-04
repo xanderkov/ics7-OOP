@@ -1,5 +1,11 @@
 #include "constants.h"
-
+/*
+#include "myscene.h"
+#include "points_convertions.h"
+#include "figure.h"
+#include "io.h"
+#include "figure_conventions.h"
+*/
 
 void print_warning(rc_type rc)
 {

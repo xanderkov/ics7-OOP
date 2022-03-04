@@ -15,7 +15,7 @@
 #include "figure_conventions.h"
 
 
-rc_type controller(myscene_t scene, int act_number, action_t act);
+rc_type controller(myscene_t scene, int act_number, data act);
 
 
 #endif // CONTROLLER_H

@@ -1,4 +1,5 @@
 #include "matrix.h"
+//#include "constants.h"
 
 void free_matrix(matrix_t mat, size_t n)
 {

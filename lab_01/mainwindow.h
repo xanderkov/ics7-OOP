@@ -39,7 +39,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     myscene_t scene;
-    struct figure fig;
+    struct figure_t fig;
     struct data dataaction;
 };
 #endif // MAINWINDOW_H

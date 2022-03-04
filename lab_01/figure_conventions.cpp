@@ -1,7 +1,14 @@
 #include "figure_conventions.h"
+/*
+#include "mainwindow.h"
+#include "point.h"
+#include "math.h"
+#include "figure.h"
+#include "points_convertions.h"
+*/
 
 
-rc_type download_model(figure_t &fig, action_t action)
+rc_type download_model(figure_t &fig, data action)
 {
     const char *filename = get_filename(action);
     file_adress file;
@@ -14,7 +21,7 @@ rc_type download_model(figure_t &fig, action_t action)
     return rc;
 }
 
-void move(struct point &a, double dx, double dy, double dz)
+void move(point &a, double dx, double dy, double dz)
 {
     double x = get_point_x(a) + dx;
     double y = get_point_y(a) + dy;
@@ -24,7 +31,7 @@ void move(struct point &a, double dx, double dy, double dz)
     set_point_z(a, z);
 }
 
-rc_type move_fig(figure_t &fig, action_t action)
+rc_type move_fig(figure_t &fig, data action)
 {
     if (is_empty(fig))
         return ERR_EMPTY;
@@ -36,7 +43,7 @@ rc_type move_fig(figure_t &fig, action_t action)
     return OK;
 }
 
-void rotation_ax(struct point &a, struct point center, double ax)
+void rotation_ax(point &a, point center, double ax)
 {
     double yc = get_point_y(center);
     double zc = get_point_z(center);
@@ -51,7 +58,7 @@ void rotation_ax(struct point &a, struct point center, double ax)
     set_point_y(a,y);
 }
 
-void rotation_ay(struct point &a, struct point center, double ay)
+void rotation_ay(point &a, point center, double ay)
 {
 
     double xc = get_point_x(center);
@@ -67,7 +74,7 @@ void rotation_ay(struct point &a, struct point center, double ay)
     set_point_z(a,z);
 }
 
-void rotation_az(struct point &a, struct point center, double az)
+void rotation_az(point &a, point center, double az)
 {
     double xc = get_point_x(center);
     double yc = get_point_y(center);
@@ -83,7 +90,7 @@ void rotation_az(struct point &a, struct point center, double az)
     set_point_y(a, y);
 }
 
-void rotation(struct point &a, struct point c, alpha_t alpha)
+void rotation(point &a, point c, alpha_t alpha)
 {
     double ax = get_alphax(alpha);
     double ay = get_alphay(alpha);
@@ -96,7 +103,7 @@ void rotation(struct point &a, struct point c, alpha_t alpha)
          rotation_ay(a,c,ay);
 }
 
-rc_type rotation_fig(figure_t &fig, action_t act)
+rc_type rotation_fig(figure_t &fig, data act)
 {
     if (is_empty(fig))
         return ERR_EMPTY;
@@ -108,7 +115,7 @@ rc_type rotation_fig(figure_t &fig, action_t act)
     return OK;
 }
 
-rc_type scale_fig(figure_t &fig, action_t act)
+rc_type scale_fig(figure_t &fig, data act)
 {
     if (is_empty(fig))
         return ERR_EMPTY;
@@ -120,7 +127,7 @@ rc_type scale_fig(figure_t &fig, action_t act)
     return OK;
 }
 
-void scale(struct point &a, struct point center, double k)
+void scale(point &a, point center, double k)
 {
     double xc = get_point_x(center);
     double yc = get_point_y(center);

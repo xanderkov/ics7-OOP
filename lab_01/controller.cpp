@@ -1,7 +1,7 @@
 #include "controller.h"
 
 
-rc_type controller(myscene_t scene, rc_type action_number, action_t action)
+rc_type controller(myscene_t scene, rc_type action_number, data action)
 {
     static figure_t fig = init_fig();
     rc_type rc = OK;

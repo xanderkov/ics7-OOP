@@ -1,4 +1,12 @@
 #include "io.h"
+/*
+#include "point.h"
+#include "constants.h"
+#include "figure.h"
+#include "matrix.h"
+#include "figure_conventions.h"
+*/
+
 
 rc_type open_file(file_adress &f, const char *filename)
 {
@@ -19,7 +27,7 @@ void rewind_file(file_adress file)
     rewind(file);
 }
 
-rc_type read_line_point(file_adress file, point_t &p)
+rc_type read_line_point(file_adress file, point &p)
 {
     int n;
     double x, y, z;
@@ -40,9 +48,9 @@ rc_type read_line_matrix(file_adress file, int &mi, int &mj)
     return rc;
 }
 
-rc_type allocate_array(point_t *&arr, size_t n)
+rc_type allocate_array(point *&arr, size_t n)
 {
-    point_t *buf = new struct point[n];
+    point *buf = new struct point[n];
     if (!buf)
         return ERR_MEMORY;
     arr = buf;
@@ -62,7 +70,7 @@ rc_type count_points(size_t &n, file_adress file)
     return OK;
 }
 
-rc_type create_array(point_t *arr, size_t n, file_adress file)
+rc_type create_array(point *arr, size_t n, file_adress file)
 {
     if (!file || !n || !arr)
         return ERR_INPUT;
@@ -112,12 +120,12 @@ rc_type create_fig(figure_t &fig, size_t n, file_adress file)
     return rc;
 }
 
-rc_type read_from_file(struct figure &fig, file_adress file)
+rc_type read_from_file(figure_t &fig, file_adress file)
 {
     if (!file)
         return ERR_EMPTY;
     rc_type rc = OK;
-    figure fig_copy = init_fig();
+    figure_t fig_copy = init_fig();
     rc = count_points(fig_copy.n, file);
     if (rc)
         return rc;

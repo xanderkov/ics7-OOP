@@ -1,5 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+/*
+#include "myscene.h"
+#include "figure.h"
+#include "points_convertions.h"
+#include "constants.h"
+#include "controller.h"
+*/
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

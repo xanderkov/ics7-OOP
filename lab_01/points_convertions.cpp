@@ -1,6 +1,9 @@
 #include "points_convertions.h"
-
-struct point &get_point(struct figure &fig, int i)
+/*
+#include "point.h"
+#include "figure.h"
+*/
+struct point &get_point(figure_t &fig, int i)
 {
     return fig.arr[i];
 }
@@ -20,32 +23,32 @@ double get_alphaz(alpha_t &d)
     return d.az;
 }
 
-alpha_t get_alpha(action_t &d)
+alpha_t get_alpha(data &d)
 {
     return d.rotation;
 }
 
-double get_deltax(struct data &d)
+double get_deltax(data &d)
 {
     return d.move.dx;
 }
 
-double get_deltay(struct data &d)
+double get_deltay(data &d)
 {
     return d.move.dy;
 }
 
-double get_deltaz(struct data &d)
+double get_deltaz(data &d)
 {
     return d.move.dy;
 }
 
-double get_k(struct data &d)
+double get_k(data &d)
 {
     return d.scale.k;
 }
 
-const char *get_filename(struct data &d)
+const char *get_filename(data &d)
 {
     return d.filename;
 }

@@ -1,43 +1,43 @@
 #include"point.h"
 
-double get_point_x(struct point a)
+double get_point_x(point a)
 {
     return a.x;
 }
 
-double get_point_y(struct point a)
+double get_point_y(point a)
 {
     return a.y;
 }
 
-double get_point_z(struct point a)
+double get_point_z(point a)
 {
     return a.z;
 }
 
-int get_point_n(struct point a)
+int get_point_n(point a)
 {
     return a.n;
 }
 
-void set_point_x(point_t &a, double x)
+void set_point_x(point &a, double x)
 {
     a.x = x;
 }
-void set_point_y(point_t &a, double y)
+void set_point_y(point &a, double y)
 {
     a.y = y;
 }
-void set_point_z(point_t &a, double z)
+void set_point_z(point &a, double z)
 {
     a.z = z;
 }
-void set_point_n(point_t &a, int n)
+void set_point_n(point &a, int n)
 {
     a.n = n;
 }
 
-void zero_point(point_t &a)
+void zero_point(point &a)
 {
     a.n = 0;
     a.x = 0;
@@ -45,7 +45,7 @@ void zero_point(point_t &a)
     a.z = 0;
 }
 
-void set_point(point_t &a, double x, double y, double z, int n)
+void set_point(point &a, double x, double y, double z, int n)
 {
 
     a.n = n;
