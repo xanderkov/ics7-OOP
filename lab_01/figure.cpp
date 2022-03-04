@@ -33,6 +33,8 @@ figure_t init_fig()
     fig.arr = NULL;
     return fig;
 }
+
+
 int get_matrix_el(figure_t fig, size_t i, size_t j)
 {
     return fig.matrix[i][j];

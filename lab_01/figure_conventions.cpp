@@ -120,17 +120,6 @@ rc_type scale_fig(figure_t &fig, action_t act)
     return OK;
 }
 
-void clear_fig(figure_t &fig)
-{
-    free_fig(fig);
-}
-
-void draw_fig(figure_t &fig, myscene_t scene)
-{
-    clear_scene(scene);
-    draw_model(fig, scene);
-}
-
 void scale(struct point &a, struct point center, double k)
 {
     double xc = get_point_x(center);
@@ -144,6 +133,19 @@ void scale(struct point &a, struct point center, double k)
     set_point_y(a, y);
     set_point_z(a, z);
 }
+
+void clear_fig(figure_t &fig)
+{
+    free_fig(fig);
+}
+
+void draw_fig(figure_t &fig, myscene_t scene)
+{
+    clear_scene(scene);
+    draw_model(fig, scene);
+}
+
+
 
 void draw_model(figure_t fig, myscene_t scene)
 {

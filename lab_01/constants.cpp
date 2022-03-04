@@ -1,6 +1,4 @@
 #include "constants.h"
-#include <QMessageBox>
-#include <string>
 
 
 void print_warning(rc_type rc)

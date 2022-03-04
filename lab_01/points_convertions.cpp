@@ -1,5 +1,4 @@
 #include "points_convertions.h"
-#include "figure.h"
 
 struct point &get_point(struct figure &fig, int i)
 {

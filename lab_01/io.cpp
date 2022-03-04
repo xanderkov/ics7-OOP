@@ -9,7 +9,6 @@ rc_type open_file(file_adress &f, const char *filename)
     return OK;
 }
 
-
 void close_file(file_adress file)
 {
     fclose(file);

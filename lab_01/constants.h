@@ -1,6 +1,9 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+#include <QMessageBox>
+#include <string>
+
 #define OK 0
 #define ERR_OPEN_FILE 1
 #define ERR_EMPTY 2

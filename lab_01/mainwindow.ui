@@ -165,7 +165,7 @@
       <item>
        <widget class="QPushButton" name="returnButton">
         <property name="text">
-         <string>Вернуть в исходное состояние</string>
+         <string>Сбросить</string>
         </property>
        </widget>
       </item>

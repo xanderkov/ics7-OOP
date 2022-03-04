@@ -2,6 +2,7 @@
 #define POINTS_CONVERTIONS_H
 
 #include "point.h"
+#include "figure.h"
 
 typedef struct data action_t;
 

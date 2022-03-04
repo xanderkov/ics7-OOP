@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include "constants.h"
 #include "point.h"
+#include "math.h"
 
 typedef struct myscene myscene_t;
 
