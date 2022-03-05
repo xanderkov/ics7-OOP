@@ -3,7 +3,7 @@
 #include "point.h"
 #include "figure.h"
 */
-struct point &get_point(figure_t &fig, int i)
+struct point &get_point(figure_t &fig, const int i)
 {
     return fig.arr[i];
 }

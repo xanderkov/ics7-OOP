@@ -21,7 +21,7 @@ rc_type download_model(figure_t &fig, data action)
     return rc;
 }
 
-void move(point &a, double dx, double dy, double dz)
+void move(point &a, const double dx, const double dy, const double dz)
 {
     double x = get_point_x(a) + dx;
     double y = get_point_y(a) + dy;
@@ -43,7 +43,7 @@ rc_type move_fig(figure_t &fig, data action)
     return OK;
 }
 
-void rotation_ax(point &a, point center, double ax)
+void rotation_ax(point &a, const double ax, point center)
 {
     double yc = get_point_y(center);
     double zc = get_point_z(center);
@@ -58,7 +58,7 @@ void rotation_ax(point &a, point center, double ax)
     set_point_y(a,y);
 }
 
-void rotation_ay(point &a, point center, double ay)
+void rotation_ay(point &a, const double ay, point center)
 {
 
     double xc = get_point_x(center);
@@ -74,7 +74,7 @@ void rotation_ay(point &a, point center, double ay)
     set_point_z(a,z);
 }
 
-void rotation_az(point &a, point center, double az)
+void rotation_az(point &a, const double az, point center)
 {
     double xc = get_point_x(center);
     double yc = get_point_y(center);
@@ -96,11 +96,11 @@ void rotation(point &a, point c, alpha_t alpha)
     double ay = get_alphay(alpha);
     double az = get_alphaz(alpha);
     if (az != 0)
-         rotation_az(a,c,az);
+         rotation_az(a, az, c);
     if (ax != 0)
-         rotation_ax(a,c,ax);
+         rotation_ax(a, ax, c);
     if (ay != 0)
-         rotation_ay(a,c,ay);
+         rotation_ay(a, ay, c);
 }
 
 rc_type rotation_fig(figure_t &fig, data act)
@@ -123,11 +123,11 @@ rc_type scale_fig(figure_t &fig, data act)
     struct point center;
     set_point(center, 0, 0, 0, 0);
     for (size_t i = 0; i < get_fig_n(fig); i++)
-        scale(get_point(fig, i), center, k);
+        scale(get_point(fig, i), k, center);
     return OK;
 }
 
-void scale(point &a, point center, double k)
+void scale(point &a, const double k, point center)
 {
     double xc = get_point_x(center);
     double yc = get_point_y(center);

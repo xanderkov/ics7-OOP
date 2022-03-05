@@ -14,9 +14,9 @@ rc_type rotation_fig(figure_t &fig, data act);
 rc_type scale_fig(figure_t &fig, data act);
 void clear_fig(figure_t &fig);
 void draw_fig(figure_t &fig, myscene_t scene);
-void move(point &a, double dx, double dy, double dz);
-void scale(point &a, point m, double k);
-void rotation(point &a, point c, double ax, double ay, double az);
+void move(point &a, const double dx, const double dy, const double dz);
+void scale(point &a, const double k, point m);
+void rotation(point &a, point c, alpha_t alpha);
 
 void draw_model(figure_t fig, myscene_t scene);
 

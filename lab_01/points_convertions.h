@@ -28,7 +28,7 @@ struct data
     } move;
 };
 
-struct point &get_point(figure_t &fig, int i);
+struct point &get_point(figure_t &fig, const int i);
 double get_alphax(alpha_t &d);
 double get_alphay(alpha_t &d);
 double get_alphaz(alpha_t &d);

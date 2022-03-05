@@ -1,7 +1,7 @@
 #include "matrix.h"
 //#include "constants.h"
 
-void free_matrix(matrix_t mat, size_t n)
+void free_matrix(matrix_t mat, const size_t n)
 {
     if (!mat)
         return;
@@ -11,7 +11,7 @@ void free_matrix(matrix_t mat, size_t n)
 }
 
 
-rc_type allocate_matrix(matrix_t &mat, size_t n)
+rc_type allocate_matrix(matrix_t &mat, const size_t n)
 {
     if (!n)
         return ERR_MEMORY;

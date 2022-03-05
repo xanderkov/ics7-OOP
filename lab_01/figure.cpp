@@ -40,12 +40,12 @@ figure_t init_fig()
 }
 
 
-int get_matrix_el(figure_t fig, size_t i, size_t j)
+int get_matrix_el(figure_t fig, const size_t i, const size_t j)
 {
     return fig.matrix[i][j];
 }
 
-void set_fig_matrix(figure_t &fig, matrix_t mt)
+void set_fig_matrix(figure_t &fig, const matrix_t mt)
 {
     fig.matrix = mt;
 }
@@ -53,7 +53,7 @@ void set_fig_arr(figure_t &fig, point *arr)
 {
     fig.arr = arr;
 }
-void set_fig_n(figure_t &fig, size_t n)
+void set_fig_n(figure_t &fig, const size_t n)
 {
     fig.n = n;
 }

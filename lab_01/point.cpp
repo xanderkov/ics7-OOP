@@ -20,19 +20,19 @@ int get_point_n(point a)
     return a.n;
 }
 
-void set_point_x(point &a, double x)
+void set_point_x(point &a, const double x)
 {
     a.x = x;
 }
-void set_point_y(point &a, double y)
+void set_point_y(point &a, const double y)
 {
     a.y = y;
 }
-void set_point_z(point &a, double z)
+void set_point_z(point &a, const double z)
 {
     a.z = z;
 }
-void set_point_n(point &a, int n)
+void set_point_n(point &a, const int n)
 {
     a.n = n;
 }
@@ -45,7 +45,7 @@ void zero_point(point &a)
     a.z = 0;
 }
 
-void set_point(point &a, double x, double y, double z, int n)
+void set_point(point &a, const double x, const double y, const double z, const int n)
 {
 
     a.n = n;
