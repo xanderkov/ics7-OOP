@@ -62,9 +62,9 @@ rc_type check_points(int n, file_adress file)
 {
     rc_type rc = OK;
     int mi, mj;
-    while ((read_line_matrix(mi, mj, file)) == OK && mi <= n && mj <= n);
-    if (feof(file))
-        rc = ERR_INPUT;
+    while ((read_line_matrix(mi, mj, file)) == OK && rc == OK)
+        if (mi <= n && mj <= n)
+            rc = ERR_INPUT;
     return rc;
 }
 
