@@ -142,7 +142,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseMatrix.h" />
+    <ClInclude Include="matrix_base.h" />
     <ClInclude Include="const_iterator.h" />
     <ClInclude Include="const_iterator_realization.h" />
     <ClInclude Include="exception.h" />
@@ -151,6 +151,7 @@
     <ClInclude Include="iterator_realization.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="matrix_constructor_and_equals.h" />
+    <ClInclude Include="matrix_itearators.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

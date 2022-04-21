@@ -2,10 +2,10 @@
 #include <iostream>
 #include <iterator>
 #include <memory>
-#include "matrix_base.hpp"
-#include "exception.hpp"
-#include "const_iterator.hpp"
-#include "iterator.hpp"
+#include "matrix_base.h"
+#include "exception.h"
+#include "const_iterator.h"
+#include "iterator.h"
 
 template <typename Type>
 using SharedPtr = std::shared_ptr<Type>;
@@ -32,7 +32,7 @@ public:
 	Matrix<Type>& operator=(const Matrix& matrix);
 	Matrix<Type>& operator=(Matrix&& matrix);
 
-	Matrix<Type>& operator=(strd::initilizer_list<std::initilizer_list<Type> > init_list);
+	Matrix<Type>& operator=(std::initializer_list<std::initializer_list<T>> init_list);
 
 	Matrix<Type> operator+(const Matrix& matrix) const;
 	Matrix<Type> operator-(const Matrix& matrix) const;

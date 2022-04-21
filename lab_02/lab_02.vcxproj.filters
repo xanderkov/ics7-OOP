@@ -25,7 +25,7 @@
     <ClInclude Include="matrix.h">
       <Filter>implementantion</Filter>
     </ClInclude>
-    <ClInclude Include="BaseMatrix.h">
+    <ClInclude Include="matrix_base.h">
       <Filter>implementantion</Filter>
     </ClInclude>
     <ClInclude Include="iterator.h">
@@ -47,6 +47,9 @@
       <Filter>Realization</Filter>
     </ClInclude>
     <ClInclude Include="matrix_constructor_and_equals.h">
+      <Filter>Realization</Filter>
+    </ClInclude>
+    <ClInclude Include="matrix_itearators.h">
       <Filter>Realization</Filter>
     </ClInclude>
   </ItemGroup>
