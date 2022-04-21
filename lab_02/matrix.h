@@ -2,6 +2,10 @@
 #include <iostream>
 #include <iterator>
 #include <memory>
+#include "matrix_base.hpp"
+#include "exception.hpp"
+#include "const_iterator.hpp"
+#include "iterator.hpp"
 
 template <typename Type>
 using SharedPtr = std::shared_ptr<Type>;
