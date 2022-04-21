@@ -1,7 +1,8 @@
 #pragma once
 #include <cstddef>
 
-class BaseMatrix {
+class BaseMatrix 
+{
 public:
     BaseMatrix(size_t rows = 0, size_t columns = 0): _rows(rows), _cols(columns) {}
 

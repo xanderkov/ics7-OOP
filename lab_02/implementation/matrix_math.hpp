@@ -1,7 +1,9 @@
 template <typename T> 
 // метод исключающий строку или столбец
-static void _excludeCopy(Matrix<T> &target, const Matrix<T> &source, size_t ex_row, size_t ex_col) {
-    if (target.GetRows() != source.GetRows() - 1 || target.GetColumns() != source.GetColumns() - 1) {
+static void _excludeCopy(Matrix<T> &target, const Matrix<T> &source, size_t ex_row, size_t ex_col) 
+{
+    if (target.GetRows() != source.GetRows() - 1 || target.GetColumns() != source.GetColumns() - 1) 
+    {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
         throw IncompatibleElements(asctime(curtime), __FILE__, __LINE__, "Target has wrong size");
@@ -9,7 +11,8 @@ static void _excludeCopy(Matrix<T> &target, const Matrix<T> &source, size_t ex_r
 
     size_t row_index, col_index;
     for (size_t i = 0; i < source.GetRows() - 1; ++i)
-        for (size_t j = 0; j < source.GetColumns() - 1; ++j) {
+        for (size_t j = 0; j < source.GetColumns() - 1; ++j) 
+        {
             row_index = i >= ex_row ? i + 1 : i;
             col_index = j >= ex_col ? j + 1: j;
             target[i][j] = source[row_index][col_index];
@@ -17,7 +20,8 @@ static void _excludeCopy(Matrix<T> &target, const Matrix<T> &source, size_t ex_r
 }
 
 template <typename T>
-static T _determinant(const Matrix<T> &matrix) {
+static T _determinant(const Matrix<T> &matrix) 
+{
     if (matrix.GetRows() == 2)
         return matrix[0][0] * matrix[1][1] - matrix[1][0] * matrix[0][1];
     if (matrix.GetRows() == 1)
@@ -25,7 +29,8 @@ static T _determinant(const Matrix<T> &matrix) {
 
     Matrix<T> tmp(matrix.GetRows() - 1, matrix.GetColumns() - 1);
     T res = {};
-    for (size_t i = 0; i < matrix.GetRows(); ++i) {
+    for (size_t i = 0; i < matrix.GetRows(); ++i) 
+    {
         _excludeCopy(tmp, matrix, 0, i);
         T minor = _determinant(tmp);
         if (i & 1)
@@ -38,7 +43,8 @@ static T _determinant(const Matrix<T> &matrix) {
 
 
 template <typename T>
-void Matrix<T>::transpose() {
+void Matrix<T>::transpose() 
+{
     auto tmp = _allocateMemory(_cols, _rows);
 
     for (size_t i = 0; i < _rows; ++i)
@@ -50,7 +56,8 @@ void Matrix<T>::transpose() {
 }
 
 template <typename T>
-T Matrix<T>::determinant() const {
+T Matrix<T>::determinant() const 
+{
     if (!isSquare()) {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
@@ -61,9 +68,11 @@ T Matrix<T>::determinant() const {
 }
 
 template <typename T>
-void Matrix<T>::inverse() {
+void Matrix<T>::inverse() 
+{
     T det = determinant();
-    if (!isSquare() || !det) {
+    if (!isSquare() || !det) 
+    {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
         throw InvalidState(asctime(curtime), __FILE__, __LINE__, "Only square matrix can be inversed and determinant should be > 0");

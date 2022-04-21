@@ -12,12 +12,12 @@ using SharedPtr = std::shared_ptr<Type>;
 using string = std::string;
 
 template <typename Type>
-class Matrix: public BaseMatrix {
+class Matrix: public BaseMatrix 
+{
 public:
     class MatrixRow;
     friend Iterator<Type>;
     friend ConstIterator<Type>;
-    // lvalue sum, sub, mul and div `elem x matrix`
 
 public:
     explicit Matrix(size_t rows = 0, size_t columns = 0);
@@ -32,11 +32,8 @@ public:
 
     Matrix<Type> &operator=(const Matrix &matrix);
     Matrix<Type> &operator=(Matrix &&matrix);
-    // init-list operator=
     Matrix<Type> &operator=(std::initializer_list<std::initializer_list<Type> > init_list);
 
-    // operator ==> method
-    // division operators and methods
     Matrix<Type> operator+(const Matrix &matrix) const;
     Matrix<Type> operator-(const Matrix &matrix) const;
     Matrix<Type> operator*(const Matrix &matrix) const;
@@ -84,7 +81,7 @@ public:
     bool isSquare() const;
     Type determinant() const;
     void transpose();
-    // inverse method
+    // -1 степень
     void inverse();
 
     ConstIterator<Type> begin() const;
@@ -94,7 +91,7 @@ public:
     ConstIterator<Type> cbegin() const;
     ConstIterator<Type> cend() const;
 
-    // insert ==> fill
+    
     void fill(Iterator<Type> start, const Iterator<Type> &end, const Type &value);
     void fill(Iterator<Type> start, Iterator<Type> source_start, const Iterator<Type> &source_end);
     void fill(Iterator<Type> start, ConstIterator<Type> source_start, const ConstIterator<Type> &source_end);
@@ -121,8 +118,9 @@ private:
     void _checkMultSizes(const Matrix &matrix) const;
 
 public:
-    // subclass
-    class MatrixRow {
+    // подкласс матрицы строки
+    class MatrixRow 
+    {
         friend Iterator<Type>;
         friend ConstIterator<Type>;
     private:

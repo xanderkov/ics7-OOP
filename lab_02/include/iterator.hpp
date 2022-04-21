@@ -12,7 +12,8 @@ template <typename T>
 class Matrix;
 
 template <typename Type>
-class Iterator: public std::iterator<std::bidirectional_iterator_tag, Type> {
+class Iterator: public std::iterator<std::bidirectional_iterator_tag, Type> 
+{
 public:
     Iterator(const Matrix<Type> &matrix, const size_t index = 0): _data(matrix._data), _index(index),
                                                                   _rows(matrix._rows), _cols(matrix._cols) {}

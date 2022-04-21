@@ -1,10 +1,12 @@
 template <typename T>
-Matrix<T>::Matrix(size_t rows, size_t columns): BaseMatrix(rows, columns) {
+Matrix<T>::Matrix(size_t rows, size_t columns): BaseMatrix(rows, columns) 
+{
     _data = _allocateMemory(rows, columns);
 }
 
 template <typename T>
-Matrix<T>::Matrix(size_t rows, size_t columns, const T &filler): BaseMatrix(rows, columns) {
+Matrix<T>::Matrix(size_t rows, size_t columns, const T &filler): BaseMatrix(rows, columns) 
+{
     _data = _allocateMemory(rows, columns);
     for (size_t i = 0; i < rows; ++i)
         for (size_t j = 0; j < columns; ++j)
@@ -12,13 +14,15 @@ Matrix<T>::Matrix(size_t rows, size_t columns, const T &filler): BaseMatrix(rows
 }
 
 template <typename T>
-Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> init_list) {
+Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> init_list) 
+{
     size_t rows = init_list.size();
     auto it = init_list.begin();
     size_t cols = it->size();
 
     for (const auto &ilist: init_list)
-        if (ilist.size() != cols) {
+        if (ilist.size() != cols) 
+        {
             time_t cur_time = time(NULL);
             auto curtime = localtime(&cur_time);
             throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "Bad initializer list");
@@ -37,8 +41,10 @@ Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> init_list) {
 }
 
 template <typename T>
-static void _checkPtr(T ptr) {
-    if (!ptr) {
+static void _checkPtr(T ptr) 
+{
+    if (!ptr) 
+    {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
         throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "nullptr as a ptr of c-matrix");
@@ -46,7 +52,8 @@ static void _checkPtr(T ptr) {
 }
 
 template <typename T>
-Matrix<T>::Matrix(size_t rows, size_t columns, T **matrix): BaseMatrix(rows, columns) {
+Matrix<T>::Matrix(size_t rows, size_t columns, T **matrix): BaseMatrix(rows, columns) 
+{
     _checkPtr(matrix);
     _data = _allocateMemory(rows, columns);
     for (size_t i = 0; i < rows; ++i)
@@ -58,7 +65,8 @@ Matrix<T>::Matrix(size_t rows, size_t columns, T **matrix): BaseMatrix(rows, col
 }
 
 template <typename T>
-Matrix<T>::Matrix(const Matrix &matrix): BaseMatrix(matrix._rows, matrix._cols) {
+Matrix<T>::Matrix(const Matrix &matrix): BaseMatrix(matrix._rows, matrix._cols) 
+{
     _data = _allocateMemory(matrix._rows, matrix._cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
@@ -66,12 +74,14 @@ Matrix<T>::Matrix(const Matrix &matrix): BaseMatrix(matrix._rows, matrix._cols) 
 }
 
 template <typename T>
-Matrix<T>::Matrix(Matrix &&matrix): BaseMatrix(matrix._rows, matrix._cols) {
+Matrix<T>::Matrix(Matrix &&matrix): BaseMatrix(matrix._rows, matrix._cols) 
+{
     _data = matrix._data;
 }
 
 template <typename T>
-Matrix<T> &Matrix<T>::operator=(const Matrix &matrix) {
+Matrix<T> &Matrix<T>::operator=(const Matrix &matrix) 
+{
     _data = _allocateMemory(matrix._rows, matrix._cols);
     _rows = matrix._rows, _cols = matrix._cols;
     for (size_t i = 0; i < _rows; ++i)
@@ -81,7 +91,8 @@ Matrix<T> &Matrix<T>::operator=(const Matrix &matrix) {
 }
 
 template <typename T>
-Matrix<T> &Matrix<T>::operator=(Matrix<T> &&matrix) {
+Matrix<T> &Matrix<T>::operator=(Matrix<T> &&matrix) 
+{
     _data = matrix._data;
     _rows = matrix._rows, _cols = matrix._cols;
     return *this;

@@ -2,7 +2,6 @@
 #include "matrix.hpp"
 
 int main() {
-    // more tests;
     std::cout << "CONSTRUCTOR TESTING SECTION:" << "\n\n";
     try {
         std::cout << "Attempt to create matrix with negative size" << 
