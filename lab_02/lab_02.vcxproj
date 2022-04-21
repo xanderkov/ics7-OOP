@@ -151,6 +151,7 @@
     <ClInclude Include="iterator_realization.h" />
     <ClInclude Include="matrix.h" />
     <ClInclude Include="matrix_constructor_and_equals.h" />
+    <ClInclude Include="matrix_fill_and_square.h" />
     <ClInclude Include="matrix_itearators.h" />
     <ClInclude Include="matrix_math.h" />
     <ClInclude Include="matrix_operations.h" />
