@@ -153,6 +153,7 @@
     <ClInclude Include="matrix_constructor_and_equals.h" />
     <ClInclude Include="matrix_itearators.h" />
     <ClInclude Include="matrix_math.h" />
+    <ClInclude Include="matrix_operations.h" />
     <ClInclude Include="matrix_row.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
