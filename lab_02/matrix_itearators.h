@@ -16,5 +16,17 @@ Iterator<T> Matrix<T>::end()
 template <typename T>
 ConstIterator<T> Matrix<T>::begin() const
 {
+	return ConstIterator<T>(*this, _cols * _rows);
+}
 
+template <typename T>
+ConstIterator<T> Matrix<T>::cbegin() const
+{
+	return ConstIterator<T>(*this, 0);
+}
+
+template <typename T>
+ConstIterator<T> Matrix<T>::cend() const
+{
+	return ConstIterator<T>(*this, _cols * _rows);
 }
