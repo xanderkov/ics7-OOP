@@ -52,5 +52,8 @@
     <ClInclude Include="matrix_itearators.h">
       <Filter>Realization</Filter>
     </ClInclude>
+    <ClInclude Include="matrix_row.h">
+      <Filter>Realization</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

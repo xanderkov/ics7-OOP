@@ -127,7 +127,7 @@ public:
 		MatrixRow(Type *data, const size_t size): _data(data), _size(size) {}
 		MatrixRow(): _data(nullptr), _size(0) {}
 		Type& operator[](size_t index);
-		const Type& operator[](sizt_t index) const;
+		const Type& operator[](size_t index) const;
 		void reset(Type* data, const size_t size);
 		void reset();
 		Type* getAddr() { return _data.get(); }
