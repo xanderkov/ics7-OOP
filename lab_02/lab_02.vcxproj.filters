@@ -46,5 +46,8 @@
     <ClInclude Include="exception_realization.h">
       <Filter>Realization</Filter>
     </ClInclude>
+    <ClInclude Include="matrix_constructor_and_equals.h">
+      <Filter>Realization</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

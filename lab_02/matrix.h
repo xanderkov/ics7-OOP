@@ -108,7 +108,7 @@ public:
 
 private:
 	SharedPtr<Matrix[]> _data{ nullptr };
-	SharePtr<MatrixRow[]> _allocateMemory(size_t rows, size_t cols);
+	SharedPtr<MatrixRow[]> _allocateMemory(size_t rows, size_t cols);
 	void _moveRow(size_t from, size_t to);
 	void _movecol(size_T from, size_t to);
 	void _checkIndex(size_t pos, size_t limit) const;

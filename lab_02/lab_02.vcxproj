@@ -150,6 +150,7 @@
     <ClInclude Include="iterator.h" />
     <ClInclude Include="iterator_realization.h" />
     <ClInclude Include="matrix.h" />
+    <ClInclude Include="matrix_constructor_and_equals.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
