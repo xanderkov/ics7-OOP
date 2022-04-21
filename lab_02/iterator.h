@@ -19,9 +19,9 @@ public:
 																  _rows(matrix._rows), _cols(matrix._cols) {}
 	Iterator(const Iterator& it) = default;
 	
-	bool operatro != (Iterator const& other) const;
-	bool operator == (Iterator const& other) const;
-	bool operator < (Iterator const& other) const;
+	bool operator!=(Iterator const& other) const;
+	bool operator==(Iterator const& other) const;
+	bool operator<(Iterator const& other) const;
 
 	operator bool() const;
 	bool isEnd() const;

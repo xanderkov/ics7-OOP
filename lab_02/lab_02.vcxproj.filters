@@ -40,5 +40,8 @@
     <ClInclude Include="const_iterator_realization.h">
       <Filter>Realization</Filter>
     </ClInclude>
+    <ClInclude Include="iterator_realization.h">
+      <Filter>Realization</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

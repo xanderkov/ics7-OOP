@@ -147,6 +147,7 @@
     <ClInclude Include="const_iterator_realization.h" />
     <ClInclude Include="exception.h" />
     <ClInclude Include="iterator.h" />
+    <ClInclude Include="iterator_realization.h" />
     <ClInclude Include="matrix.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
