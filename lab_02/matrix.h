@@ -110,10 +110,10 @@ private:
 	SharedPtr<Matrix[]> _data{ nullptr };
 	SharedPtr<MatrixRow[]> _allocateMemory(size_t rows, size_t cols);
 	void _moveRow(size_t from, size_t to);
-	void _movecol(size_T from, size_t to);
+	void _moveCol(size_t from, size_t to);
 	void _checkIndex(size_t pos, size_t limit) const;
 	void _checkSizes(const Matrix& matrix) const;
-	void _checkMultSizs(const Matrix& matrix) const;
+	void _checkMultSizes(const Matrix& matrix) const;
 
 public:
 	class MatrixRow

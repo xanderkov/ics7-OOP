@@ -61,5 +61,8 @@
     <ClInclude Include="matrix_operations.h">
       <Filter>Realization</Filter>
     </ClInclude>
+    <ClInclude Include="matrix_private_methods.h">
+      <Filter>Realization</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
