@@ -1,13 +1,17 @@
 #include <iostream>
 #include "matrix.hpp"
 
-int main() {
+int main() 
+{
     std::cout << "CONSTRUCTOR TESTING SECTION:" << "\n\n";
-    try {
+    try 
+    {
         std::cout << "Attempt to create matrix with negative size" << 
             " (conversion to very big size_t number)" << std::endl;
         Matrix<int> err_m(-1, 2);
-    } catch (ExceptionMatrix &err){
+    } 
+    catch (ExceptionMatrix &err)
+    {
         std::cerr << err.what() << "\n\n";
     }
 
@@ -18,7 +22,8 @@ int main() {
 
     std::cout << "Check of constructor with c-matrix:\n";
     int **c_matrix = new int*[2];
-    for (int i = 0; i < 2; ++i) {
+    for (int i = 0; i < 2; ++i) 
+    {
         c_matrix[i] = new int[2];
         for (int j = 0; j < 2; ++j)
             c_matrix[i][j] = i + j;

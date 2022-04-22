@@ -5,7 +5,7 @@ void Iterator<T>::_checkIndex(const string hint)
         return;
     time_t cur_time = time(NULL);
     auto local_time = localtime(&cur_time);
-    throw IndexError(asctime(local_time), __FILE__, __LINE__, hint);
+    throw IteratorIndexError(asctime(local_time), __FILE__, __LINE__, hint);
 }
 
 template <typename T>
@@ -15,7 +15,7 @@ void Iterator<T>::_checkValid(const string hint) const
     {
         time_t cur_time = time(NULL);
         auto local_time = localtime(&cur_time);
-        throw MemoryError(asctime(local_time), __FILE__, __LINE__, hint);
+        throw IteratorValidationError(asctime(local_time), __FILE__, __LINE__, hint);
     }
 }
 

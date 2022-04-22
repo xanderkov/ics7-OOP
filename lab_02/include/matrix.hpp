@@ -22,7 +22,7 @@ public:
 public:
     explicit Matrix(size_t rows = 0, size_t columns = 0);
     Matrix(size_t rows, size_t columns, const Type &filler);
-    // C-matrix constructor
+    
     Matrix(size_t rows, size_t columns, Type **matrix);
     Matrix(std::initializer_list<std::initializer_list<Type> > init_list);
     explicit Matrix(const Matrix &matrix);
@@ -35,48 +35,52 @@ public:
     Matrix<Type> &operator=(std::initializer_list<std::initializer_list<Type> > init_list);
 
     Matrix<Type> operator+(const Matrix &matrix) const;
-    Matrix<Type> operator-(const Matrix &matrix) const;
-    Matrix<Type> operator*(const Matrix &matrix) const;
-    Matrix<Type> operator/(const Matrix &matrix) const;
+    Matrix<Type> operator+(const Type &elem) const noexcept;
+    Matrix<Type> &operator+=(const Type &elem) noexcept;
+    Matrix<Type> &operator+=(const Matrix &matrix);
+    // Реализовать оператор сложений двух матриц
 
     Matrix<Type> addMatrix(const Matrix &matrix) const;
-    Matrix<Type> subMatrix(const Matrix &matrix) const;
-    Matrix<Type> mulMatrix(const Matrix &matrix) const;
-    Matrix<Type> divMatrix(const Matrix &matrix) const;
-
-    Matrix<Type> operator+(const Type &elem) const noexcept;
-    Matrix<Type> operator-(const Type &elem) const noexcept;
-    Matrix<Type> operator*(const Type &elem) const noexcept;
-    Matrix<Type> operator/(const Type &elem) const;
-
     Matrix<Type> addElem(const Type &elem) const noexcept;
+    Matrix<Type> &addEqElem(const Type &elem) noexcept;
+    Matrix<Type> &addEqMatrix(const Matrix &matrix);
+
+    
+    Matrix<Type> operator-(const Matrix &matrix) const;
+    Matrix<Type> operator-(const Type &elem) const noexcept;
+    Matrix<Type> &operator-=(const Matrix &matrix);
+    Matrix<Type> &operator-=(const Type &elem) noexcept;
+
+    Matrix<Type> subMatrix(const Matrix &matrix) const;
     Matrix<Type> subElem(const Type &elem) const noexcept;
+    Matrix<Type> &subEqMatrix(const Matrix &matrix);
+    Matrix<Type> &subEqElem(const Type &elem) noexcept;
+
+
+    Matrix<Type> operator*(const Matrix &matrix) const;
+    Matrix<Type> operator*(const Type &elem) const noexcept;
+    Matrix<Type> &operator*=(const Matrix &matrix);
+    Matrix<Type> &operator*=(const Type &elem) noexcept;
+
+    Matrix<Type> mulMatrix(const Matrix &matrix) const;
     Matrix<Type> mulElem(const Type &elem) const noexcept;
+    Matrix<Type> &mulEqMatrix(const Matrix &matrix);
+    Matrix<Type> &mulEqElem(const Type &elem) noexcept;
+
+
+    Matrix<Type> operator/(const Matrix &matrix) const;
+    Matrix<Type> operator/(const Type &elem) const;
+    Matrix<Type> &operator/=(const Matrix &matrix);
+    Matrix<Type> &operator/=(const Type &elem);
+
+    Matrix<Type> divMatrix(const Matrix &matrix) const;
     Matrix<Type> divElem(const Type &elem) const;
+    Matrix<Type> &divEqMatrix(const Matrix &matrix);
+    Matrix<Type> &divEqElem(const Type &elem);
 
     //-Matrix
     Matrix<Type> operator-();
     Matrix<Type> neg();
-
-    Matrix<Type> &operator+=(const Matrix &matrix);
-    Matrix<Type> &operator-=(const Matrix &matrix);
-    Matrix<Type> &operator*=(const Matrix &matrix);
-    Matrix<Type> &operator/=(const Matrix &matrix);
-
-    Matrix<Type> &addEqMatrix(const Matrix &matrix);
-    Matrix<Type> &subEqMatrix(const Matrix &matrix);
-    Matrix<Type> &mulEqMatrix(const Matrix &matrix);
-    Matrix<Type> &divEqMatrix(const Matrix &matrix);
-
-    Matrix<Type> &operator+=(const Type &elem) noexcept;
-    Matrix<Type> &operator-=(const Type &elem) noexcept;
-    Matrix<Type> &operator*=(const Type &elem) noexcept;
-    Matrix<Type> &operator/=(const Type &elem);
-
-    Matrix<Type> &addEqElem(const Type &elem) noexcept;
-    Matrix<Type> &subEqElem(const Type &elem) noexcept;
-    Matrix<Type> &mulEqElem(const Type &elem) noexcept;
-    Matrix<Type> &divEqElem(const Type &elem);
 
     bool isSquare() const;
     Type determinant() const;

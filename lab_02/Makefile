@@ -1,8 +1,7 @@
+
 CC = g++
 INCLUDE_DIR = include/
 BINARIES = $(patsubst %.cpp,bin/%.o, $(wildcard *.cpp))
-# Remove -g if not in debug mode
-#GTK_FLAGS = `pkg-config gtkmm-3.0 --libs --cflags`
 COMPILE_FLAGS = -Wall -g -Werror -std=c++17
 
 .PHONY: all test clean
@@ -17,5 +16,3 @@ bin/%.o: %.cpp
 
 clean:
 	rm -rf bin/ app.exe
-
-# g++ main.cpp -o app.exe `pkg-config gtkmm-3.0 --cflags --libs`

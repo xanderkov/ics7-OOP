@@ -21,7 +21,7 @@ public:
 
 
 class IndexError: public ExceptionMatrix
- {
+{
 public:
     IndexError(const string time_info, const string file_info, const int line_info, 
                const string errmsg = "No error message"):
@@ -32,7 +32,8 @@ public:
 };
 
 
-class MemoryError: public ExceptionMatrix {
+class MemoryError: public ExceptionMatrix 
+{
 public:
     MemoryError(const string time_info, const string file_info, const int line_info, 
                const string errmsg = "No error message"):
@@ -42,7 +43,8 @@ public:
     }
 };
 
-class InvalidArgument: public ExceptionMatrix {
+class InvalidArgument: public ExceptionMatrix 
+{
 public:
     InvalidArgument(const string time_info, const string file_info, const int line_info, 
                const string errmsg = "No error message"):
@@ -73,5 +75,29 @@ public:
         _errmsg += " (error type: IncompatibleElements)";
     }
 };
+
+class IteratorIndexError: public ExceptionMatrix
+{
+public:
+    IteratorIndexError(const string time_info, const string file_info, const int line_info, 
+               const string errmsg = "No error message"):
+               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+    {
+        _errmsg += " (error type: Iterator Index Error)";
+    }
+};
+
+class IteratorValidationError: public ExceptionMatrix
+{
+public:
+    IteratorValidationError(const string time_info, const string file_info, const int line_info,
+                            const string errmsg = "No error message"):
+        ExceptionMatrix(time_info, file_info, line_info, errmsg)
+        {
+            _errmsg += " (error type: Iterator Validation Error)"
+        }
+};
+
+
 
 #include "../implementation/exception.hpp"
