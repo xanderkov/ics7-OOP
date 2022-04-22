@@ -139,6 +139,7 @@ public:
         void reset();
         Type *getAddr() { return _data.get(); }
         const Type *getAddr() const { return _data.get(); }
+    
     };
 
 };

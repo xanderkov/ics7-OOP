@@ -94,7 +94,7 @@ public:
                             const string errmsg = "No error message"):
         ExceptionMatrix(time_info, file_info, line_info, errmsg)
         {
-            _errmsg += " (error type: Iterator Validation Error)"
+            _errmsg += " (error type: Iterator Validation Error)";
         }
 };
 
