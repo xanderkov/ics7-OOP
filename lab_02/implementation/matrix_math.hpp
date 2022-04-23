@@ -6,7 +6,7 @@ static void _excludeCopy(Matrix<T> &target, const Matrix<T> &source, size_t ex_r
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw IncompatibleElements(asctime(curtime), __FILE__, __LINE__, "Target has wrong size");
+        throw IncompatibleElements(asctime(curtime), __FILE__, "Non-class", __LINE__, "Target has wrong size");
     }
 
     size_t row_index, col_index;
@@ -61,7 +61,7 @@ T Matrix<T>::determinant() const
     if (!isSquare()) {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw InvalidState(asctime(curtime), __FILE__, __LINE__, "Matrix should be square to get determinant;");
+        throw InvalidState(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Matrix should be square to get determinant;");
     }
 
     return _determinant(*this);
@@ -75,7 +75,7 @@ void Matrix<T>::inverse()
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw InvalidState(asctime(curtime), __FILE__, __LINE__, "Only square matrix can be inversed and determinant should be > 0");
+        throw InvalidState(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Only square matrix can be inversed and determinant should be > 0");
     }
 
     Matrix<T> res(_rows, _cols);

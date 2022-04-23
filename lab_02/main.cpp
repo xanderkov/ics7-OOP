@@ -160,6 +160,19 @@ int main()
     std::cout << "matrix after operation:\n";
     std::cout << tmp << "\n\n";
 
+    std::cout << "Operation: tmp = 2.5 + math_matrix;\n";
+    tmp = 2.5 + math_matrix;
+    std::cout << "matrix before operation:\n";
+    std::cout << tmp << "\n\n";
+    std::cout << "Operation: tmp = 2.5 - math_matrix;\n";
+    tmp = 2.5 - math_matrix;
+    std::cout << "matrix before operation:\n";
+    std::cout << tmp << "\n\n";
+    std::cout << "Operation: tmp = 2.5 * math_matrix;\n";
+    tmp = 2.5 * math_matrix;
+    std::cout << "matrix before operation:\n";
+    std::cout << tmp << "\n\n";
+
     std::cout << "Same operations, but using METHODS..\n";
     std::cout << "Operation: tmp = math_matrix.addElem(2.5);\n";
     tmp = math_matrix.addElem(2.5);

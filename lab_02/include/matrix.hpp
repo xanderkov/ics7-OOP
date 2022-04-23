@@ -34,47 +34,62 @@ public:
     Matrix<Type> &operator=(Matrix &&matrix);
     Matrix<Type> &operator=(std::initializer_list<std::initializer_list<Type> > init_list);
 
-    Matrix<Type> operator+(const Matrix &matrix) const;
-    Matrix<Type> operator+(const Type &elem) const noexcept;
+    template <typename Type2>
+    decltype(auto) operator+(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) operator+(const Type2 &elem) const noexcept;
     Matrix<Type> &operator+=(const Type &elem) noexcept;
     Matrix<Type> &operator+=(const Matrix &matrix);
-    // Реализовать оператор сложений двух матриц
 
-    Matrix<Type> addMatrix(const Matrix &matrix) const;
-    Matrix<Type> addElem(const Type &elem) const noexcept;
+    template <typename Type2>
+    decltype(auto) addMatrix(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) addElem(const Type2 &elem) const noexcept;
     Matrix<Type> &addEqElem(const Type &elem) noexcept;
     Matrix<Type> &addEqMatrix(const Matrix &matrix);
-
     
-    Matrix<Type> operator-(const Matrix &matrix) const;
-    Matrix<Type> operator-(const Type &elem) const noexcept;
+
+    template <typename Type2>
+    decltype(auto) operator-(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) operator-(const Type2 &elem) const noexcept;
     Matrix<Type> &operator-=(const Matrix &matrix);
     Matrix<Type> &operator-=(const Type &elem) noexcept;
 
-    Matrix<Type> subMatrix(const Matrix &matrix) const;
-    Matrix<Type> subElem(const Type &elem) const noexcept;
+    template <typename Type2>
+    decltype(auto) subMatrix(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) subElem(const Type2 &elem) const noexcept;
     Matrix<Type> &subEqMatrix(const Matrix &matrix);
     Matrix<Type> &subEqElem(const Type &elem) noexcept;
 
 
-    Matrix<Type> operator*(const Matrix &matrix) const;
-    Matrix<Type> operator*(const Type &elem) const noexcept;
+    template <typename Type2>
+    decltype(auto) operator*(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) operator*(const Type2 &elem) const noexcept;
     Matrix<Type> &operator*=(const Matrix &matrix);
     Matrix<Type> &operator*=(const Type &elem) noexcept;
 
-    Matrix<Type> mulMatrix(const Matrix &matrix) const;
-    Matrix<Type> mulElem(const Type &elem) const noexcept;
+    template <typename Type2>
+    decltype(auto) mulMatrix(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) mulElem(const Type2 &elem) const noexcept;
     Matrix<Type> &mulEqMatrix(const Matrix &matrix);
     Matrix<Type> &mulEqElem(const Type &elem) noexcept;
 
 
-    Matrix<Type> operator/(const Matrix &matrix) const;
-    Matrix<Type> operator/(const Type &elem) const;
+    template <typename Type2>
+    decltype(auto) operator/(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) operator/(const Type2 &elem) const;
     Matrix<Type> &operator/=(const Matrix &matrix);
     Matrix<Type> &operator/=(const Type &elem);
 
-    Matrix<Type> divMatrix(const Matrix &matrix) const;
-    Matrix<Type> divElem(const Type &elem) const;
+    template <typename Type2>
+    decltype(auto) divMatrix(const Matrix<Type2> &matrix) const;
+    template <typename Type2>
+    decltype(auto) divElem(const Type2 &elem) const;
     Matrix<Type> &divEqMatrix(const Matrix &matrix);
     Matrix<Type> &divEqElem(const Type &elem);
 
@@ -137,6 +152,8 @@ public:
         const Type &operator[](size_t index) const;
         void reset(Type *data, const size_t size);
         void reset();
+        
+    private:
         Type *getAddr() { return _data.get(); }
         const Type *getAddr() const { return _data.get(); }
     

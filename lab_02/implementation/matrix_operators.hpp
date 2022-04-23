@@ -44,10 +44,11 @@ const T &Matrix<T>::operator()(size_t row, size_t col) const
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator+(const Matrix<T> &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::operator+(const Matrix<T2> &matrix) const 
 {
     _checkSizes(matrix);
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] + matrix[0][0])> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] = _data[i][j] + matrix[i][j];
@@ -55,11 +56,13 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T> &matrix) const
     return tmp;
 }
 
+
 template <typename T>
-Matrix<T> Matrix<T>::operator-(const Matrix<T> &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::operator-(const Matrix<T2> &matrix) const 
 {
     _checkSizes(matrix);
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] - matrix[0][0])> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] = _data[i][j] - matrix[i][j];
@@ -68,11 +71,12 @@ Matrix<T> Matrix<T>::operator-(const Matrix<T> &matrix) const
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator*(const Matrix<T> &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::operator*(const Matrix<T2> &matrix) const 
 { 
     _checkMultSizes(matrix);
 
-    Matrix<T> tmp(_rows, matrix._cols);
+    Matrix<decltype((*this)[0][0] * matrix[0][0])> tmp(_rows, matrix._cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < matrix._cols; ++j)
             for (size_t k = 0; k < _cols; ++k)
@@ -82,9 +86,10 @@ Matrix<T> Matrix<T>::operator*(const Matrix<T> &matrix) const
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator+(const T &elem) const noexcept 
+template <typename T2>
+decltype(auto) Matrix<T>::operator+(const T2 &elem) const noexcept 
 {
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] + elem)> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] = _data[i][j] + elem;
@@ -92,10 +97,12 @@ Matrix<T> Matrix<T>::operator+(const T &elem) const noexcept
     return tmp;
 }
 
+
 template <typename T>
-Matrix<T> Matrix<T>::operator-(const T &elem) const noexcept 
+template <typename T2>
+decltype(auto) Matrix<T>::operator-(const T2 &elem) const noexcept 
 {
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] - elem)> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] = _data[i][j] - elem;
@@ -104,9 +111,10 @@ Matrix<T> Matrix<T>::operator-(const T &elem) const noexcept
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator*(const T &elem) const noexcept 
+template <typename T2>
+decltype(auto) Matrix<T>::operator*(const T2 &elem) const noexcept 
 {
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] * elem)> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] = _data[i][j] * elem;
@@ -188,7 +196,7 @@ Matrix<T> &Matrix<T>::operator/=(const T &elem)
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "Zero divisor");
+        throw InvalidArgument(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Zero divisor");
     }
 
     for (size_t i = 0; i < _rows; ++i)
@@ -199,16 +207,17 @@ Matrix<T> &Matrix<T>::operator/=(const T &elem)
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator/(const T &elem) const 
+template <typename T2>
+decltype(auto) Matrix<T>::operator/(const T2 &elem) const 
 {
     if (elem == 0) 
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "Zero divisor");
+        throw InvalidArgument(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Zero divisor");
     }
 
-    Matrix<T> tmp(_rows, _cols);
+    Matrix<decltype((*this)[0][0] / elem)> tmp(_rows, _cols);
     for (size_t i = 0; i < _rows; ++i)
         for (size_t j = 0; j < _cols; ++j)
             tmp[i][j] =_data[i][j] / elem;
@@ -217,9 +226,10 @@ Matrix<T> Matrix<T>::operator/(const T &elem) const
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::operator/(const Matrix &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::operator/(const Matrix<T2> &matrix) const 
 {
-    Matrix<T> tmp(matrix);
+    Matrix<decltype((*this)[0][0] / matrix[0][0])> tmp(matrix);
     tmp.inverse();
     return operator*(tmp);
 }

@@ -10,7 +10,7 @@ class ExceptionMatrix: public std::exception
 protected:
     string _errmsg;
 public:
-    ExceptionMatrix(const string time_info, const string file_info, const int line_info, 
+    ExceptionMatrix(const string time_info, const string file_info, string class_name,  const int line_info, 
                     const string errmsg = "No error message");
     virtual ~ExceptionMatrix() {};
     virtual const char *what() const noexcept override 
@@ -23,9 +23,9 @@ public:
 class IndexError: public ExceptionMatrix
 {
 public:
-    IndexError(const string time_info, const string file_info, const int line_info, 
+    IndexError(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: IndexError)";
     }
@@ -35,9 +35,9 @@ public:
 class MemoryError: public ExceptionMatrix 
 {
 public:
-    MemoryError(const string time_info, const string file_info, const int line_info, 
+    MemoryError(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: MemoryError)";
     }
@@ -46,9 +46,9 @@ public:
 class InvalidArgument: public ExceptionMatrix 
 {
 public:
-    InvalidArgument(const string time_info, const string file_info, const int line_info, 
+    InvalidArgument(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: InvalidArgument)";
     }
@@ -57,9 +57,9 @@ public:
 class IncompatibleElements: public ExceptionMatrix 
 {
 public:
-    IncompatibleElements(const string time_info, const string file_info, const int line_info, 
+    IncompatibleElements(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: IncompatibleElements)";
     }
@@ -68,9 +68,9 @@ public:
 class InvalidState: public ExceptionMatrix 
 {
 public:
-    InvalidState(const string time_info, const string file_info, const int line_info, 
+    InvalidState(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: IncompatibleElements)";
     }
@@ -79,9 +79,9 @@ public:
 class IteratorIndexError: public ExceptionMatrix
 {
 public:
-    IteratorIndexError(const string time_info, const string file_info, const int line_info, 
+    IteratorIndexError(const string time_info, const string file_info, string class_name, const int line_info, 
                const string errmsg = "No error message"):
-               ExceptionMatrix(time_info, file_info, line_info, errmsg) 
+               ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
         _errmsg += " (error type: Iterator Index Error)";
     }
@@ -90,9 +90,9 @@ public:
 class IteratorValidationError: public ExceptionMatrix
 {
 public:
-    IteratorValidationError(const string time_info, const string file_info, const int line_info,
+    IteratorValidationError(const string time_info, const string file_info, string class_name, const int line_info,
                             const string errmsg = "No error message"):
-        ExceptionMatrix(time_info, file_info, line_info, errmsg)
+        ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg)
         {
             _errmsg += " (error type: Iterator Validation Error)";
         }

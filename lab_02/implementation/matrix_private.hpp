@@ -5,7 +5,7 @@ void Matrix<T>::_checkSizes(const Matrix<T> &matrix) const
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw IncompatibleElements(asctime(curtime), __FILE__, __LINE__, "Different matrix sizes");
+        throw IncompatibleElements(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Different matrix sizes");
     }
 }
 
@@ -16,7 +16,7 @@ void Matrix<T>::_checkMultSizes(const Matrix<T> &matrix) const
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw IncompatibleElements(asctime(curtime), __FILE__, __LINE__,
+        throw IncompatibleElements(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__,
                 "Bad sizes of matrices for multiplication");
     }
 }
@@ -28,7 +28,7 @@ void Matrix<T>::_checkIndex(size_t pos, size_t limit) const
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw IndexError(asctime(curtime), __FILE__, __LINE__, "Index is bigger than sizes");
+        throw IndexError(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Index is bigger than sizes");
     }
 }
 
@@ -71,7 +71,7 @@ SharedPtr<typename Matrix<T>::MatrixRow[]> Matrix<T>::_allocateMemory(size_t row
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw MemoryError(asctime(curtime), __FILE__, __LINE__, "_allocateMemory function error");
+        throw MemoryError(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "_allocateMemory function error");
     }
 
     return data;

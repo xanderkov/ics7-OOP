@@ -11,37 +11,43 @@ const T &Matrix<T>::at(size_t row, size_t col) const
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::addMatrix(const Matrix &matrix) const 
+template <typename T2>
+decltype(auto)  Matrix<T>::addMatrix(const Matrix<T2> &matrix) const 
 {
     return operator+(matrix);
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::subMatrix(const Matrix &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::subMatrix(const Matrix<T2> &matrix) const 
 {
     return operator-(matrix);
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::mulMatrix(const Matrix &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::mulMatrix(const Matrix<T2> &matrix) const 
 {
     return operator*(matrix);
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::addElem(const T &elem) const noexcept
+template <typename T2>
+decltype(auto) Matrix<T>::addElem(const T2 &elem) const noexcept
  {
     return operator+(elem);
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::subElem(const T &elem) const noexcept 
+template <typename T2>
+decltype(auto) Matrix<T>::subElem(const T2 &elem) const noexcept 
 {
     return operator-(elem);
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::mulElem(const T &elem) const noexcept 
+template <typename T2>
+decltype(auto) Matrix<T>::mulElem(const T2 &elem) const noexcept 
 {
     return operator*(elem);
 }
@@ -90,7 +96,8 @@ Matrix<T> &Matrix<T>::divEqElem(const T &elem)
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::divElem(const T &elem) const 
+template <typename T2>
+decltype(auto) Matrix<T>::divElem(const T2 &elem) const 
 {
     return operator/(elem);
 }
@@ -102,7 +109,8 @@ Matrix<T> Matrix<T>::neg()
 }
 
 template <typename T>
-Matrix<T> Matrix<T>::divMatrix(const Matrix &matrix) const 
+template <typename T2>
+decltype(auto) Matrix<T>::divMatrix(const Matrix<T2> &matrix) const 
 {
     return operator/(matrix);
 }

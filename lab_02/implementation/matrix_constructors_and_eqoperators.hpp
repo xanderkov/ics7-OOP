@@ -25,7 +25,7 @@ Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> init_list)
         {
             time_t cur_time = time(NULL);
             auto curtime = localtime(&cur_time);
-            throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "Bad initializer list");
+            throw InvalidArgument(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Bad initializer list");
         }
 
     _data = _allocateMemory(rows, cols);
@@ -47,7 +47,7 @@ static void _checkPtr(T ptr)
     {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
-        throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "nullptr as a ptr of c-matrix");
+        throw InvalidArgument(asctime(curtime), __FILE__, "Non-class", __LINE__, "nullptr as a ptr of c-matrix");
     }
 }
 
@@ -109,7 +109,7 @@ Matrix<T> &Matrix<T>::operator=(std::initializer_list<std::initializer_list<T> >
         {
             time_t cur_time = time(NULL);
             auto curtime = localtime(&cur_time);
-            throw InvalidArgument(asctime(curtime), __FILE__, __LINE__, "Bad initializer list");
+            throw InvalidArgument(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Bad initializer list");
         }
 
     size_t i = 0;
