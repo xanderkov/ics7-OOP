@@ -58,7 +58,8 @@ void Matrix<T>::transpose()
 template <typename T>
 T Matrix<T>::determinant() const 
 {
-    if (!isSquare()) {
+    if (!isSquare()) 
+    {
         time_t cur_time = time(NULL);
         auto curtime = localtime(&cur_time);
         throw InvalidState(asctime(curtime), __FILE__, typeid(*this).name(), __LINE__, "Matrix should be square to get determinant;");

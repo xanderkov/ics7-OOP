@@ -99,9 +99,10 @@ public:
 
     bool isSquare() const;
     Type determinant() const;
-    void transpose();
+    void transpose(); // Должен создавать копию, а не транспонировать сам объект
     // -1 степень
-    void inverse();
+    void inverse(); // Аналогично
+    // Сделать заполнение единицами
 
     ConstIterator<Type> begin() const;
     ConstIterator<Type> end() const;

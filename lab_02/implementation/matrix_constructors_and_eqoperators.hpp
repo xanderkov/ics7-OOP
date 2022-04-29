@@ -41,7 +41,7 @@ Matrix<T>::Matrix(std::initializer_list<std::initializer_list<T>> init_list)
 }
 
 template <typename T>
-static void _checkPtr(T ptr) 
+void _checkPtr(T ptr) 
 {
     if (!ptr) 
     {

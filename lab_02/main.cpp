@@ -172,6 +172,7 @@ int main()
     tmp = 2.5 * math_matrix;
     std::cout << "matrix before operation:\n";
     std::cout << tmp << "\n\n";
+    
 
     std::cout << "Same operations, but using METHODS..\n";
     std::cout << "Operation: tmp = math_matrix.addElem(2.5);\n";

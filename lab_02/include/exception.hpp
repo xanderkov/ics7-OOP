@@ -27,7 +27,7 @@ public:
                const string errmsg = "No error message"):
                ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
-        _errmsg += " (error type: IndexError)";
+        _errmsg += " (error type: Index Error)";
     }
 };
 
@@ -39,7 +39,7 @@ public:
                const string errmsg = "No error message"):
                ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
-        _errmsg += " (error type: MemoryError)";
+        _errmsg += " (error type: Memory Error)";
     }
 };
 
@@ -50,7 +50,7 @@ public:
                const string errmsg = "No error message"):
                ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
-        _errmsg += " (error type: InvalidArgument)";
+        _errmsg += " (error type: Invalid Argument)";
     }
 };
 
@@ -61,7 +61,7 @@ public:
                const string errmsg = "No error message"):
                ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
-        _errmsg += " (error type: IncompatibleElements)";
+        _errmsg += " (error type: Incompatible Elements)";
     }
 };
 
@@ -72,7 +72,7 @@ public:
                const string errmsg = "No error message"):
                ExceptionMatrix(time_info, file_info, class_name, line_info, errmsg) 
     {
-        _errmsg += " (error type: IncompatibleElements)";
+        _errmsg += " (error type: Invalid State)";
     }
 };
 
