@@ -1,0 +1,4 @@
+#ifndef ERROR_CONTAINER_H
+#define ERROR_CONTAINER_H
+
+#endif // ERROR_CONTAINER_H

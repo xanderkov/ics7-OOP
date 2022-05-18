@@ -10,6 +10,7 @@ CONFIG += c++11
 
 SOURCES += \
     controller.cpp \
+    facade.cpp \
     mainwindow.cpp \
     mainwindow.cpp \
     main.cpp \
@@ -18,6 +19,13 @@ SOURCES += \
 HEADERS += \
     command_base.h \
     controller.h \
+    error_base.h \
+    error_container.h \
+    error_drawer.h \
+    error_loader.h \
+    error_new.h \
+    error_scene.h \
+    facade.h \
     mainwindow.h \
     mainwindow.h
 
