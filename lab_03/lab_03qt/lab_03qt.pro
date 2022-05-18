@@ -11,16 +11,20 @@ CONFIG += c++11
 SOURCES += \
     commands.cpp \
     controller.cpp \
+    drawer_qt.cpp \
     facade.cpp \
     mainwindow.cpp \
     mainwindow.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    model_source_loader_file.cpp
 
 HEADERS += \
     command_base.h \
     commands.h \
     controller.h \
+    drawer_base.h \
+    drawer_qt.h \
     error_base.h \
     error_container.h \
     error_drawer.h \
@@ -29,8 +33,10 @@ HEADERS += \
     error_scene.h \
     facade.h \
     factory_abstract.h \
+    factory_qt.h \
     mainwindow.h \
-    mainwindow.h
+    mainwindow.h \
+    model_source_loader_file.h
 
 FORMS += \
     mainwindow.ui

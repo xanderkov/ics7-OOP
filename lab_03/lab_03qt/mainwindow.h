@@ -6,6 +6,11 @@
 #include <QMessageBox>
 #include <memory>
 
+#include "command_base.h"
+#include "commands.h"
+#include "drawer_qt.h"
+#include "facade.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

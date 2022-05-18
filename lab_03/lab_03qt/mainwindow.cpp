@@ -3,12 +3,20 @@
 
 #include <fstream>
 
+#include "canvas_qt.h"
+#include "factory_qt.hpp"
+#include "model_source_loader_file.h"
+#include "camera_source_loader_file.h"
+#include "error_new.h"
+#include "error_loader.h"
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , facade_viewer(new Facade),
-      index_model(0),
-      index_camera(0)
+    , facade_viewer(new Facade)
+    , index_model(0)
+    , index_camera(0)
 {
     ui->setupUi(this);
     scene_view = std::make_shared<QGraphicsScene>();
