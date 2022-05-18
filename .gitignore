@@ -51,3 +51,5 @@ compile_commands.json
 *creator.user*
 *.exe
 app.exe
+
+x64
