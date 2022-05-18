@@ -6,8 +6,14 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , facade_viewer(new Facade),
+      index_model(0),
+      index_camera(0)
 {
     ui->setupUi(this);
+    scene_view = std::make_shared<QGraphicsScene>();
+    director.set_scene(scene_view);
+    ui->graphicsView->setScene(scene_view.get());
 }
 
 MainWindow::~MainWindow()
