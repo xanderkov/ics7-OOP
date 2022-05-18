@@ -9,6 +9,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    commands.cpp \
     controller.cpp \
     facade.cpp \
     mainwindow.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
 
 HEADERS += \
     command_base.h \
+    commands.h \
     controller.h \
     error_base.h \
     error_container.h \
@@ -26,6 +28,7 @@ HEADERS += \
     error_new.h \
     error_scene.h \
     facade.h \
+    factory_abstract.h \
     mainwindow.h \
     mainwindow.h
 

@@ -1,0 +1,4 @@
+#ifndef FACTORY_ABSTRACT_H
+#define FACTORY_ABSTRACT_H
+
+#endif // FACTORY_ABSTRACT_H
