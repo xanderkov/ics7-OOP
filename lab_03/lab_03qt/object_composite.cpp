@@ -8,7 +8,7 @@ bool CompositeObject::IsComposite() const
 
 bool CompositeObject::Add(std::shared_ptr<SceneObject> obj)
 {
-    scene_objects_.push_back(obj);
+    _scene_objects.push_back(obj);
 
     return true;
 }
@@ -30,7 +30,7 @@ void CompositeObject::Accept(std::shared_ptr<Visitor> visitor)
 {
     visitor->Visit(*this);
 
-    for (auto &obj : scene_objects_)
+    for (auto &obj : _scene_objects)
     {
         obj->Accept(visitor);
     }

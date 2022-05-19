@@ -32,19 +32,33 @@ void FileModelSourceLoader::close()
     _file.close();
     _file.clear();
 }
-
 Vector<Point<double>> FileModelSourceLoader::ReadPoints()
 {
     time_t t_time = time(NULL);
 
     if (!IsOpen())
-        throw ReadStreamError(__FILE__, typeid(*this).name, __LINE__, ctime(&t_time));
+    {
+        throw ReadStreamError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
+    }
+
+    size_t n_points = 0;
+    _file >> n_points;
+
+    if (n_points < 1)
+    {
+        throw FileFormatError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
+    }
 
     Vector<Point<double>> points(n_points, Point<double>(0, 0, 0));
 
     for (size_t i = 0; i < n_points; ++i)
+    {
         if (!(_file >> points[i]))
-            throw FileFormatError(__FILE__, typeis(*this).name(), __LINE__, ctime(&t_time));
+        {
+            throw FileFormatError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
+        }
+    }
+
     return points;
 }
 
@@ -58,7 +72,7 @@ Vector<Link> FileModelSourceLoader::ReadLinks()
     }
 
     size_t n_links = 0;
-    file_ >> n_links;
+    _file >> n_links;
 
     if (n_links < 1)
     {
@@ -69,7 +83,7 @@ Vector<Link> FileModelSourceLoader::ReadLinks()
 
     for (size_t i = 0; i < n_links; ++i)
     {
-        if (!(file_ >> links[i]))
+        if (!(_file >> links[i]))
         {
             throw FileFormatError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
         }
@@ -89,7 +103,7 @@ Point<double> FileModelSourceLoader::ReadCentre()
 
     Point<double> centre;
 
-    if (!(file_ >> centre))
+    if (!(_file >> centre))
     {
         throw FileFormatError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
     }

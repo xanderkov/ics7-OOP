@@ -1,15 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <fstream>
+
 
 #include "canvas_qt.h"
-#include "factory_qt.hpp"
+#include "factory_qt.h"
 #include "model_source_loader_file.h"
 #include "camera_source_loader_file.h"
 #include "error_new.h"
 #include "error_loader.h"
 
+#include <fstream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -35,7 +36,7 @@ void MainWindow::render()
         QMessageBox::information(nullptr, "Warning", "Choose camera to render");
     time_t t_time = time(NULL);
     std::shared_ptr<AbstractFactory> factory;
-    auto drawer = director.get_drawer("../lab_03qt/data/config.cfg")
+    auto drawer = director.get_drawer("F:/Projects/ics7-OOP/lab_03/lab_03qt/data/config.cfg", factory);
 
     if (drawer == nullptr)
         throw OpenStreamError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
@@ -60,7 +61,7 @@ void MainWindow::on_pushButton_AddCamera_clicked()
     std::string file_name = file.toLocal8Bit().constData();
 
     time_t t_time = time(NULL);
-    auto loader = sdirector.get_loader_camera("../lab_03qt/data/config.cfg");
+    auto loader = sdirector.get_loader_camera("F:/Projects/ics7-OOP/lab_03/lab_03qt/data/config.cfg");
 
     if (loader == nullptr)
         throw OpenStreamError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
@@ -96,7 +97,7 @@ void MainWindow::on_pushButton_AddModel_clicked()
 
     time_t t_time = time(NULL);
 
-    auto loader = sdirector.get_loader_model("../lab_03qt/data/config.cfg");
+    auto loader = sdirector.get_loader_model("F:/Projects/ics7-OOP/lab_03/lab_03qt/data/config.cfg");
 
     if (loader == nullptr)
     {

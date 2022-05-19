@@ -1,6 +1,6 @@
 #include "object_model.h"
 
-#include "object_model.hpp"
+#include "object_model.h"
 
 Model::Model(const Model &other) : VisibleObject(), _carcass(other._carcass) {}
 

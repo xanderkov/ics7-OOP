@@ -6,18 +6,18 @@
 
 void DrawManager::ProjectPoint(Point<double> &point)
 {
-    Point<double> cam_pos(camera_->position);
+    Point<double> cam_pos(_camera->position);
 
     std::shared_ptr<Matrix<double>> proj_matrix(std::make_shared<MoveMatrix>(-cam_pos.getX(), -cam_pos.getY(), 0));
     point.Transform(proj_matrix);
 
-    proj_matrix.reset(new RotateOxMatrix(-camera_->x_angle));
+    proj_matrix.reset(new RotateOxMatrix(-_camera->x_angle));
     point.Transform(proj_matrix);
 
-    proj_matrix.reset(new RotateOyMatrix(-camera_->y_angle));
+    proj_matrix.reset(new RotateOyMatrix(-_camera->y_angle));
     point.Transform(proj_matrix);
 
-    proj_matrix.reset(new RotateOzMatrix(-camera_->z_angle));
+    proj_matrix.reset(new RotateOzMatrix(-_camera->z_angle));
     point.Transform(proj_matrix);
 
     double eps = 1e-10;
@@ -55,7 +55,7 @@ void DrawManager::Visit(Model &model)
         throw CameraError(__FILE__, typeid(*this).name(), __LINE__, ctime(&t_time));
     }
 
-    auto carcass = model.carcass_;
+    auto carcass = model._carcass;
     auto edges = carcass->GetEdges();
 
     for (auto &edge : edges)

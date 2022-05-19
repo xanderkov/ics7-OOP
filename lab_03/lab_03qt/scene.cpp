@@ -2,16 +2,16 @@
 #include "iterator_vector.h"
 #include "error_scene.h"
 
-Scene::Scene() : object_(new CompositeObject) {}
+Scene::Scene() : _object(new CompositeObject) {}
 
 void Scene::Add(std::shared_ptr<SceneObject> object)
 {
-    object_->Add(std::move(object));
+    _object->Add(std::move(object));
 }
 
 void Scene::Remove(IteratorObject &iter)
 {
-    object_->Remove(iter);
+    _object->Remove(iter);
 }
 
 std::shared_ptr<CompositeObject> Scene::GetObject()

@@ -7,7 +7,7 @@
 class QtFactory : public AbstractFactory
 {
 public:
-    std::shared_ptr<BaseDrawer> CreateUi() const override;
+    std::shared_ptr<BaseDrawer> CreateUi() const override { return std::make_shared<QtDrawer>(); };
 };
 
 #endif // FACTORY_QT_H
