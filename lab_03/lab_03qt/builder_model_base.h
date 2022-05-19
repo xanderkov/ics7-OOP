@@ -1,0 +1,4 @@
+#ifndef BUILDER_MODEL_BASE_H
+#define BUILDER_MODEL_BASE_H
+
+#endif // BUILDER_MODEL_BASE_H

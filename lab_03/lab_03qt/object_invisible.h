@@ -9,7 +9,7 @@ public:
     explicit InvisibleObject() = default;
     ~InvisibleObject() = default;
 
-    bool IsVisible() const;
+    bool IsVisible() const { return false; }
 };
 
 

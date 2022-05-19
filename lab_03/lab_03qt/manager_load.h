@@ -3,9 +3,9 @@
 
 
 #include <memory>
-#include "load_controller_base.hpp"
-#include "model_source_loader_base.hpp"
-#include "manager_base.hpp"
+#include "load_controller_base.h"
+#include "model_source_loader_base.h"
+#include "manager_base.h"
 
 class LoadManager : public BaseManager
 {
