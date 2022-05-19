@@ -22,6 +22,8 @@ SOURCES += \
     manager_scene.cpp \
     manager_transform.cpp \
     model_source_loader_file.cpp \
+    object_camera.cpp \
+    object_composite.cpp \
     scene.cpp
 
 HEADERS += \
@@ -53,6 +55,9 @@ HEADERS += \
     matrix.h \
     matrix_base.h \
     model_source_loader_file.h \
+    object_camera.h \
+    object_composite.h \
+    object_invisible.h \
     scene.h
 
 FORMS += \
