@@ -1,0 +1,4 @@
+#ifndef ITERATOR_USUAL_H
+#define ITERATOR_USUAL_H
+
+#endif // ITERATOR_USUAL_H

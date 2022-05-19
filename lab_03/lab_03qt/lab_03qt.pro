@@ -17,7 +17,12 @@ SOURCES += \
     mainwindow.cpp \
     main.cpp \
     mainwindow.cpp \
-    model_source_loader_file.cpp
+    manager_draw.cpp \
+    manager_load.cpp \
+    manager_scene.cpp \
+    manager_transform.cpp \
+    model_source_loader_file.cpp \
+    scene.cpp
 
 HEADERS += \
     command_base.h \
@@ -34,9 +39,21 @@ HEADERS += \
     facade.h \
     factory_abstract.h \
     factory_qt.h \
+    iterator_base.h \
+    iterator_const.h \
+    iterator_usual.h \
+    load_controller_base.h \
     mainwindow.h \
     mainwindow.h \
-    model_source_loader_file.h
+    manager_base.h \
+    manager_draw.h \
+    manager_load.h \
+    manager_scene.h \
+    manager_transform.h \
+    matrix.h \
+    matrix_base.h \
+    model_source_loader_file.h \
+    scene.h
 
 FORMS += \
     mainwindow.ui
