@@ -29,6 +29,7 @@ public:
     virtual IteratorObject end() {return IteratorObject(); };
 
 
+
     virtual void conversion(const Point &transfer, const ScaleCoef &scale, const Angle &rotate) = 0;
     virtual void accept(Visitor &visitor) = 0;
 };

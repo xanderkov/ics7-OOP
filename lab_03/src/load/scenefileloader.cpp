@@ -53,7 +53,6 @@ int BaseSceneLoader::read_number()
 shared_ptr<Scene> SceneFileLoader::load()
 {
     builder->reset();
-
     if (stream->is_open())
     {
         shared_ptr<BaseSourceLoader> figureLoader = shared_ptr<BaseSourceLoader>(new FigureFileLoader(stream));

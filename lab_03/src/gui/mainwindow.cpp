@@ -35,7 +35,6 @@ void MainWindow::render_scene()
 
 
 
-
 void MainWindow::on_pushButton_clicked()
 {
     try
@@ -49,7 +48,7 @@ void MainWindow::on_pushButton_clicked()
     catch(exception &error)
     {
         qDebug(error.what());
-//        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
+        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 
 }
@@ -66,29 +65,13 @@ void MainWindow::on_pushButton_2_clicked()
     }  catch (exception &error)
     {
         qDebug(error.what());
-//        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
+        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 
 
 
 }
 
-void MainWindow::on_pushButton_3_clicked()
-{
-    try
-    {
-        string file = QFileDialog::getOpenFileName(this, tr("Open scene file"), "", tr("Text file (*.txt)")).toStdString();
-        shared_ptr<BaseCommand> command(new LoadScene(file));
-
-        facade.execute(command);
-        render_scene();
-    }  catch (exception &error)
-    {
-        qDebug(error.what());
-//        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
-    }
-
-}
 
 void MainWindow::on_pushButton_5_clicked()
 {
@@ -134,18 +117,20 @@ void MainWindow::on_pushButton_6_clicked()
 {
     try
     {
-    int num = ui->N_L_3->text().toInt();
+        int num = ui->N_L_3->text().toInt();
 
-    double x = ui->X_E_3->text().toDouble();
-    double y = ui->Y_E_3->text().toDouble();
-    double z = ui->Z_E_3->text().toDouble();
+        double x = ui->X_E_3->text().toDouble();
+        double y = ui->Y_E_3->text().toDouble();
+        double z = ui->Z_E_3->text().toDouble();
 
 
-    shared_ptr<BaseCommand> command(new ScaleObject(num, ScaleCoef(x, y, z)));
+        shared_ptr<BaseCommand> command(new ScaleObject(num, ScaleCoef(x, y, z)));
 
-    facade.execute(command);
-    render_scene();
-    }  catch (exception &error) {
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
         qDebug(error.what());
     }
 }
@@ -154,13 +139,32 @@ void MainWindow::on_pushButton_7_clicked()
 {
     try
     {
-    int num = ui->Cam_E->text().toInt();
+        int num = ui->Cam_E->text().toInt();
 
-    shared_ptr<BaseCommand> command(new SetCamera(num));
+        shared_ptr<BaseCommand> command(new SetCamera(num));
 
-    facade.execute(command);
-    render_scene();
-    }  catch (exception &error) {
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
         qDebug(error.what());
     }
 }
+
+void MainWindow::on_load_scene_button_clicked()
+{
+    try
+    {
+        string file = QFileDialog::getOpenFileName(this, tr("Open scene file"), "", tr("Text file (*.txt)")).toStdString();
+        shared_ptr<BaseCommand> command(new LoadScene(file));
+
+        facade.execute(command);
+        render_scene();
+    }  catch (exception &error)
+    {
+        qDebug(error.what());
+        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
+    }
+}
+

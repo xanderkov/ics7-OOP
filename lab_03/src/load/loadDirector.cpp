@@ -15,9 +15,11 @@ shared_ptr<Object> FigureDirector::load(const string &file_name)
 
 shared_ptr<Scene> SceneDirector::load(const string &file_name)
 {
+
     shared_ptr<BaseSceneLoader> loader = SceneLoadSolution().get_creator()->create();
 
     loader->open(file_name);
+
 
     shared_ptr<Scene> scene = loader->load();
 

@@ -1,7 +1,7 @@
 #include "basecommand.h"
-
 void DrawScene::execute()
 {
+
     shared_ptr<Camera> camera = std::dynamic_pointer_cast<Camera>(SceneManagerCreator().get_manager()->get_camera());
 
     if (camera == nullptr)
@@ -9,6 +9,7 @@ void DrawScene::execute()
         auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
         throw camera_exception(ctime(&timenow), __FILE__, typeid(DrawScene).name(), __FUNCTION__);
     }
+
     DrawManagerCreator().get_manager()->draw(drawer, camera);
 }
 
@@ -17,17 +18,20 @@ void SetCamera::execute()
     SceneManagerCreator().get_manager()->set_camera(camera);
 }
 
+
 void LoadScene::execute()
 {
     shared_ptr<Scene> scene = LoadManagerCreator().get_manager()->load_scene(file_name);
     SceneManagerCreator().get_manager()->set_scene(scene);
 }
 
+
 void LoadCamera::execute()
 {
     shared_ptr<Object> camera = LoadManagerCreator().get_manager()->load_camera(file_name);
     SceneManagerCreator().get_manager()->get_scene()->add_object(camera);
 }
+
 
 void LoadFigure::execute()
 {

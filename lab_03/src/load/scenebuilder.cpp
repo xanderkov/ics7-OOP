@@ -1,5 +1,6 @@
 #include "scenebuilder.h"
 
+
 void SceneBuilder::build_objects(std::vector<shared_ptr<Object>> &objects)
 {
     for (auto &object : objects)

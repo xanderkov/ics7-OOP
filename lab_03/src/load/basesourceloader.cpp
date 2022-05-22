@@ -1,9 +1,9 @@
 #include "baseSourceLoader.h"
 
+#include <iostream>
 Point BaseSourceLoader::read_point()
 {
     double x, y, z;
-
     if (!(*stream >> x >> y >> z))
     {
         auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
