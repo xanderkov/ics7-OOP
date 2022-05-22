@@ -30,14 +30,14 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="load_figur_button">
           <property name="text">
            <string>Загрузить фигуру</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="load_camera_button">
           <property name="text">
            <string>Загрузить камеру</string>
           </property>
@@ -68,7 +68,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QPushButton" name="pushButton_5">
+         <widget class="QPushButton" name="move_figure_button">
           <property name="text">
            <string>Переместить объект</string>
           </property>
@@ -122,21 +122,21 @@
           <item>
            <widget class="QLineEdit" name="X_E">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Y_E">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Z_E">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
@@ -160,7 +160,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="rotate_figure_button">
           <property name="text">
            <string>Повернуть объект</string>
           </property>
@@ -214,21 +214,21 @@
           <item>
            <widget class="QLineEdit" name="X_E_2">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Y_E_2">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Z_E_2">
             <property name="text">
-             <string/>
+             <string>0</string>
             </property>
            </widget>
           </item>
@@ -252,7 +252,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QPushButton" name="pushButton_6">
+         <widget class="QPushButton" name="scale_figure_button">
           <property name="text">
            <string>Масштабировать объект</string>
           </property>
@@ -306,21 +306,21 @@
           <item>
            <widget class="QLineEdit" name="X_E_3">
             <property name="text">
-             <string/>
+             <string>1</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Y_E_3">
             <property name="text">
-             <string/>
+             <string>1</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLineEdit" name="Z_E_3">
             <property name="text">
-             <string/>
+             <string>1</string>
             </property>
            </widget>
           </item>
@@ -344,7 +344,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QPushButton" name="pushButton_7">
+         <widget class="QPushButton" name="install_camera_button">
           <property name="text">
            <string>Установить камеру</string>
           </property>

@@ -34,8 +34,44 @@ void MainWindow::render_scene()
 }
 
 
+void MainWindow::on_load_scene_button_clicked()
+{
+    try
+    {
+        string file = QFileDialog::getOpenFileName(this, tr("Open scene file"), "", tr("Text file (*.txt)")).toStdString();
+        shared_ptr<BaseCommand> command(new LoadScene(file));
 
-void MainWindow::on_pushButton_clicked()
+        facade.execute(command);
+
+
+        render_scene();
+    }  catch (exception &error)
+    {
+        qDebug(error.what());
+        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
+    }
+}
+
+
+void MainWindow::on_install_camera_button_clicked()
+{
+    try
+    {
+        int num = ui->Cam_E->text().toInt();
+
+        shared_ptr<BaseCommand> command(new SetCamera(num));
+
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
+        qDebug(error.what());
+    }
+}
+
+
+void MainWindow::on_load_figur_button_clicked()
 {
     try
     {
@@ -50,10 +86,10 @@ void MainWindow::on_pushButton_clicked()
         qDebug(error.what());
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
-
 }
 
-void MainWindow::on_pushButton_2_clicked()
+
+void MainWindow::on_load_camera_button_clicked()
 {
     try
     {
@@ -62,58 +98,62 @@ void MainWindow::on_pushButton_2_clicked()
 
         facade.execute(command);
         render_scene();
-    }  catch (exception &error)
+    }
+    catch (exception &error)
     {
         qDebug(error.what());
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
-
-
-
 }
 
 
-void MainWindow::on_pushButton_5_clicked()
+void MainWindow::on_move_figure_button_clicked()
 {
     try
     {
-    int num = ui->N_L->text().toInt();
+        int num = ui->N_L->text().toInt();
 
-    double x = ui->X_E->text().toDouble();
-    double y = ui->Y_E->text().toDouble();
-    double z = ui->Z_E->text().toDouble();
+        double x = ui->X_E->text().toDouble();
+        double y = ui->Y_E->text().toDouble();
+        double z = ui->Z_E->text().toDouble();
 
 
-    shared_ptr<BaseCommand> command(new TransferObject(num, Point(x, y, z)));
+        shared_ptr<BaseCommand> command(new TransferObject(num, Point(x, y, z)));
 
-    facade.execute(command);
-    render_scene();
-    }  catch (exception &error) {
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
         qDebug(error.what());
     }
 }
 
-void MainWindow::on_pushButton_4_clicked()
+
+void MainWindow::on_rotate_figure_button_clicked()
 {
     try
     {
-    int num = ui->N_L_2->text().toInt();
+        int num = ui->N_L_2->text().toInt();
 
-    double x = ui->X_E_2->text().toDouble();
-    double y = ui->Y_E_2->text().toDouble();
-    double z = ui->Z_E_2->text().toDouble();
+        double x = ui->X_E_2->text().toDouble();
+        double y = ui->Y_E_2->text().toDouble();
+        double z = ui->Z_E_2->text().toDouble();
 
 
-    shared_ptr<BaseCommand> command(new RotateObject(num, Angle(x, y, z)));
+        shared_ptr<BaseCommand> command(new RotateObject(num, Angle(x, y, z)));
 
-    facade.execute(command);
-    render_scene();
-    }  catch (exception &error) {
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
         qDebug(error.what());
     }
 }
 
-void MainWindow::on_pushButton_6_clicked()
+
+void MainWindow::on_scale_figure_button_clicked()
 {
     try
     {
@@ -132,39 +172,6 @@ void MainWindow::on_pushButton_6_clicked()
     catch (exception &error)
     {
         qDebug(error.what());
-    }
-}
-
-void MainWindow::on_pushButton_7_clicked()
-{
-    try
-    {
-        int num = ui->Cam_E->text().toInt();
-
-        shared_ptr<BaseCommand> command(new SetCamera(num));
-
-        facade.execute(command);
-        render_scene();
-    }
-    catch (exception &error)
-    {
-        qDebug(error.what());
-    }
-}
-
-void MainWindow::on_load_scene_button_clicked()
-{
-    try
-    {
-        string file = QFileDialog::getOpenFileName(this, tr("Open scene file"), "", tr("Text file (*.txt)")).toStdString();
-        shared_ptr<BaseCommand> command(new LoadScene(file));
-
-        facade.execute(command);
-        render_scene();
-    }  catch (exception &error)
-    {
-        qDebug(error.what());
-        QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 }
 

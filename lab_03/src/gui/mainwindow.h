@@ -26,19 +26,21 @@ public:
     void render_scene();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_5_clicked();
-
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_6_clicked();
-
-    void on_pushButton_7_clicked();
 
     void on_load_scene_button_clicked();
+
+    void on_install_camera_button_clicked();
+
+    void on_load_figur_button_clicked();
+
+    void on_load_camera_button_clicked();
+
+    void on_move_figure_button_clicked();
+
+    void on_rotate_figure_button_clicked();
+
+    void on_scale_figure_button_clicked();
 
 private:
     Ui::MainWindow *ui;
