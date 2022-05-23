@@ -34,7 +34,7 @@ private:
 
 protected:
     Data data;
-    const Data &get_data() const {return data; };
+    const Data &get_data() const { return data; };
 };
 
 #endif // FIGURE_H

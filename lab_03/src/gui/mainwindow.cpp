@@ -43,9 +43,9 @@ void MainWindow::on_load_scene_button_clicked()
 
         facade.execute(command);
 
-
-        render_scene();
-    }  catch (exception &error)
+        //render_scene();
+    }
+    catch (exception &error)
     {
         qDebug(error.what());
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
