@@ -2,7 +2,7 @@
 #define SCENEMANAGER_H
 
 #include "basemanager.h"
-#include "scene/scene.h"
+#include "../scene/scene.h"
 
 class SceneManager : public BaseManager
 {

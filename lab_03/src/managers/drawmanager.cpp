@@ -1,6 +1,6 @@
 #include "drawmanager.h"
-#include "visitor/visitor.h"
-#include "objects/edge.h"
+#include "../visitor/visitor.h"
+#include "../objects/edge.h"
 
 #define WINDOW_CENTER_W 300
 #define WINDOW_CENTER_H 300

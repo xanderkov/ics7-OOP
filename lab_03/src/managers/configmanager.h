@@ -2,8 +2,8 @@
 #define CONFIGMANAGER_H
 
 #include "basemanager.h"
-#include "configuration/registrator.h"
-#include "configuration/solution.h"
+#include "../configuration/registrator.h"
+#include "../configuration/solution.h"
 
 class ConfigManager
 {

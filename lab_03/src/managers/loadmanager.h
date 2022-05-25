@@ -2,8 +2,8 @@
 #define LOADMANAGER_H
 
 #include "basemanager.h"
-#include "load/loaddirector.h"
-#include "scene/scene.h"
+#include "../load/loadDirector.h"
+#include "../scene/scene.h"
 
 class LoadManager : public BaseManager
 {

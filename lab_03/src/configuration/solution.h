@@ -1,7 +1,7 @@
 #ifndef SOLUTION_H
 #define SOLUTION_H
 
-#include "load/loadcreator.h"
+#include "../load/loadcreator.h"
 #include <map>
 
 

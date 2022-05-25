@@ -14,9 +14,6 @@ CameraFileLoader::CameraFileLoader(const shared_ptr<ifstream> &_stream)
 
 void CameraFileLoader::open(const string &file_name)
 {
-    if (stream->is_open())
-        close();
-
     stream->open(file_name);
 
     if (!stream)

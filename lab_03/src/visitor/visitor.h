@@ -6,11 +6,11 @@
 #include "../objects/point.h"
 #include <memory>
 #include <vector>
-#include "objects/figure.h"
-#include "objects/camera.h"
+#include "../objects/figure.h"
+#include "../objects/camera.h"
 #include "../objects/data.h"
 #include "../visitor/baseVisitor.h"
-#include "../AbstractFactory/drawer.h"
+#include "../abstractfactory/drawer.h"
 
 using namespace std;
 

@@ -11,7 +11,7 @@ class Visitor;
 #include "../exceptions/exceptions.h"
 #include "data.h"
 #include <chrono>
-#include "visitor/visitor.h"
+#include "../visitor/visitor.h"
 
 using namespace std;
 

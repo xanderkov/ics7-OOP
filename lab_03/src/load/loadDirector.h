@@ -1,10 +1,10 @@
 #ifndef LOADDIRECTOR_H
 #define LOADDIRECTOR_H
 
-#include "objects/object.h"
+#include "../objects/object.h"
 #include "basesourceloader.h"
 #include <string>
-#include "configuration/loadsolution.h"
+#include "../configuration/loadsolution.h"
 
 
 class LoadDirector

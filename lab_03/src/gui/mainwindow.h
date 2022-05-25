@@ -6,9 +6,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
-#include "facade/basecommand.h"
-#include "facade/facade.h"
-#include "AbstractFactory/abstractfactory.h"
+#include "../facade/basecommand.h"
+#include "../facade/facade.h"
+#include "../abstractfactory/abstractfactory.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

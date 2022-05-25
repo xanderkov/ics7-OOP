@@ -2,8 +2,8 @@
 #define DRAWMANAGER_H
 
 #include "basemanager.h"
-#include "abstractfactory/drawer.h"
-#include "objects/camera.h"
+#include "../abstractfactory/drawer.h"
+#include "../objects/camera.h"
 #include "scenemanager.h"
 
 class DrawManager : public BaseManager

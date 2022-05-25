@@ -2,8 +2,8 @@
 #define LOADSOUTION_H
 
 #include <memory>
-#include "load/loadcreator.h"
-#include "managers/configmanager.h"
+#include "../load/loadcreator.h"
+#include "../managers/configmanager.h"
 
 class FigureLoadSolution
 {

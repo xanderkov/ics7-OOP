@@ -4,12 +4,12 @@
 #include "../Mathobj/mathobjs.h"
 #include "../Mathobj/pixel.h"
 #include "../objects/point.h"
-#include "AbstractFactory/drawer.h"
-#include "load/scenefileloader.h"
-#include "managers/configmanager.h"
-#include "managers/drawmanager.h"
-#include "managers/loadmanager.h"
-#include "managers/scenemanager.h"
+#include "../abstractfactory/drawer.h"
+#include "../load/scenefileloader.h"
+#include "../managers/configmanager.h"
+#include "../managers/drawmanager.h"
+#include "../managers/loadmanager.h"
+#include "../managers/scenemanager.h"
 
 
 class BaseCommand

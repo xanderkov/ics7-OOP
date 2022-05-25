@@ -1,8 +1,8 @@
 #ifndef BASEMANAGER_H
 #define BASEMANAGER_H
 
-#include "AbstractFactory/drawer.h"
-#include "objects/camera.h"
+#include "../abstractfactory/drawer.h"
+#include "../objects/camera.h"
 
 class BaseManager
 {

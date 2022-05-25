@@ -1,7 +1,7 @@
 #ifndef REGISTRATOR_H
 #define REGISTRATOR_H
 
-#include "load/loadcreator.h"
+#include "../load/loadcreator.h"
 #include "solution.h"
 #include <fstream>
 
