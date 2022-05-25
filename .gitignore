@@ -55,3 +55,12 @@ app.exe
 x64
 
 .vs
+
+CMakeFiles
+lab_03_autogen
+runner
+CMakeCache.txt
+build-Lab_03-Desktop-Debug
+cmake_install.cmake
+Makefile
+

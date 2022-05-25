@@ -10,6 +10,7 @@ set(QT_VERSION 5)
 set(REQUIRED_LIBS Core Gui Widgets)
 set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/runner")
+set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
 
 
 add_executable(${PROJECT_NAME}
