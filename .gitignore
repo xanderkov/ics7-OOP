@@ -55,7 +55,7 @@ app.exe
 x64
 
 .vs
-
+.vscode
 CMakeFiles
 lab_03_autogen
 runner
