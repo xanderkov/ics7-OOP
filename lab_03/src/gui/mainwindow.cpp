@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -47,7 +48,7 @@ void MainWindow::on_load_scene_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 }
@@ -66,7 +67,7 @@ void MainWindow::on_install_camera_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
     }
 }
 
@@ -83,7 +84,7 @@ void MainWindow::on_load_figur_button_clicked()
     }
     catch(exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 }
@@ -101,7 +102,7 @@ void MainWindow::on_load_camera_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
         QMessageBox::information(this, "Ошибка", "Ошибка чтения файла");
     }
 }
@@ -125,7 +126,7 @@ void MainWindow::on_move_figure_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
     }
 }
 
@@ -148,7 +149,7 @@ void MainWindow::on_rotate_figure_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
     }
 }
 
@@ -171,7 +172,7 @@ void MainWindow::on_scale_figure_button_clicked()
     }
     catch (exception &error)
     {
-        qDebug(error.what());
+        cout << error.what();
     }
 }
 

@@ -1,53 +1,55 @@
 #include "../facade/basecommand.h"
 void DrawScene::execute()
 {
-
-    shared_ptr<Camera> camera = std::dynamic_pointer_cast<Camera>(SceneManagerCreator().get_manager()->get_camera());
-    
-    if (camera == nullptr)
-    {
-        auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
-        throw camera_exception(ctime(&timenow), __FILE__, typeid(DrawScene).name(), __FUNCTION__);
-    }
-
-    DrawManagerCreator().get_manager()->draw(drawer, camera);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    shared_ptr<Camera> camera = std::dynamic_pointer_cast<Camera>(manager_scene->get_camera());
+    auto manager_draw = ManagerSolution::get_draw_manager();
+    manager_draw->draw(drawer, camera);
 }
 
 void SetCamera::execute()
 {
-    SceneManagerCreator().get_manager()->set_camera(camera);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->set_camera(camera);
 }
 
 
 void LoadScene::execute()
 {
-    shared_ptr<Scene> scene = LoadManagerCreator().get_manager()->load_scene(file_name);
-    SceneManagerCreator().get_manager()->set_scene(scene);
+    auto manager_load = ManagerSolution::get_load_manager();
+    shared_ptr<Scene> scene = manager_load->load_scene(file_name);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->set_scene(scene);
 }
 
 
 void LoadCamera::execute()
 {
-    auto manager = ManagerSolution::get_load_manager();
-    shared_ptr<Object> camera = manager->load_camera(file_name);
-    SceneManagerCreator().get_manager()->get_scene()->add_object(camera);
+    auto manager_load = ManagerSolution::get_load_manager();
+    shared_ptr<Object> camera = manager_load->load_camera(file_name);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->get_scene()->add_object(camera);
 }
 
 
 void LoadFigure::execute()
 {
-    shared_ptr<Object> figure = LoadManagerCreator().get_manager()->load_figure(file_name);
-    SceneManagerCreator().get_manager()->get_scene()->add_object(figure);
+    auto manager_load = ManagerSolution::get_load_manager();
+    shared_ptr<Object> figure = manager_load->load_figure(file_name);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->get_scene()->add_object(figure);
 }
 
 void AddObject::execute()
 {
-    SceneManagerCreator().get_manager()->get_scene()->add_object(object);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->get_scene()->add_object(object);
 }
 
 void RemoveObject::execute()
 {
-    SceneManagerCreator().get_manager()->get_scene()->remove_object(index);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    manager_scene->get_scene()->remove_object(index);
 }
 
 void TransferObject::execute()
@@ -55,7 +57,8 @@ void TransferObject::execute()
     ScaleCoef scale(1,1,1);
     Angle rotate(0, 0, 0);
 
-    shared_ptr<Object> object = *((SceneManagerCreator().get_manager()->get_scene()->get_objects()->begin()) + index);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    shared_ptr<Object> object = *(manager_scene->get_scene()->get_objects()->begin() + index);
     object->conversion(transfer, scale, rotate);
 }
 
@@ -64,7 +67,8 @@ void ScaleObject::execute()
     Point transfer(0,0,0);
     Angle rotate(0, 0, 0);
 
-    shared_ptr<Object> object = *((SceneManagerCreator().get_manager()->get_scene()->get_objects()->begin()) + index);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    shared_ptr<Object> object = *(manager_scene->get_scene()->get_objects()->begin() + index);
     object->conversion(transfer, scale, rotate);
 }
 
@@ -73,7 +77,8 @@ void RotateObject::execute()
     ScaleCoef scale(1,1,1);
     Point transfer(0, 0, 0);
 
-    shared_ptr<Object> object = *((SceneManagerCreator().get_manager()->get_scene()->get_objects()->begin()) + index);
+    auto manager_scene = ManagerSolution::get_scene_manager();
+    shared_ptr<Object> object = *(manager_scene->get_scene()->get_objects()->begin() + index);
     object->conversion(transfer, scale, rotate);
 }
 
