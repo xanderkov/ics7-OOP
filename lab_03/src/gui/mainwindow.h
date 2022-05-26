@@ -42,6 +42,8 @@ private slots:
 
     void on_scale_figure_button_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 

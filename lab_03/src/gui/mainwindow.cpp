@@ -176,3 +176,20 @@ void MainWindow::on_scale_figure_button_clicked()
     }
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+    try
+    {
+        shared_ptr<BaseCommand> command(new RemoveObject(0));
+
+        facade.execute(command);
+        render_scene();
+    }
+    catch (exception &error)
+    {
+        cout << error.what();
+        QMessageBox::information(this, "Ошибка", "Нет моделей");
+    }
+}
+
