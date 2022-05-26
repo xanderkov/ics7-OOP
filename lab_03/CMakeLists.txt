@@ -76,6 +76,8 @@ add_executable(${PROJECT_NAME}
     src/visitor/visitor.h
     src/load/loadDirector.h
     src/configuration/loadsolution.h
+    src/managers/managersolution.h
+    src/managers/managersolution.cpp
         )
         
 find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)

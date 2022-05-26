@@ -5,6 +5,7 @@
 #include "../abstractfactory/drawer.h"
 #include "../objects/camera.h"
 #include "scenemanager.h"
+#include "../objects/data.h"
 
 class DrawManager : public BaseManager
 {

@@ -3,7 +3,7 @@ void DrawScene::execute()
 {
 
     shared_ptr<Camera> camera = std::dynamic_pointer_cast<Camera>(SceneManagerCreator().get_manager()->get_camera());
-
+    
     if (camera == nullptr)
     {
         auto timenow = chrono::system_clock::to_time_t(chrono::system_clock::now());
@@ -28,7 +28,8 @@ void LoadScene::execute()
 
 void LoadCamera::execute()
 {
-    shared_ptr<Object> camera = LoadManagerCreator().get_manager()->load_camera(file_name);
+    auto manager = ManagerSolution::get_load_manager();
+    shared_ptr<Object> camera = manager->load_camera(file_name);
     SceneManagerCreator().get_manager()->get_scene()->add_object(camera);
 }
 

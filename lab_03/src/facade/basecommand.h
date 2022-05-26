@@ -10,7 +10,7 @@
 #include "../managers/drawmanager.h"
 #include "../managers/loadmanager.h"
 #include "../managers/scenemanager.h"
-
+#include "../managers/managersolution.h"
 
 class BaseCommand
 {
