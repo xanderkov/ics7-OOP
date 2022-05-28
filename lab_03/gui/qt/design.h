@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'designqLCTaK.ui'
+** Form generated from reading UI file 'designWODTxs.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.15.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef DESIGNQLCTAK_H
-#define DESIGNQLCTAK_H
+#ifndef DESIGNWODTXS_H
+#define DESIGNWODTXS_H
 
 #include <QtCore/QLocale>
 #include <QtCore/QVariant>
@@ -15,13 +15,11 @@
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "display.h"
 
@@ -40,12 +38,9 @@ public:
     QFrame *frame_4;
     QFrame *move_label;
     QGridLayout *gridLayout_5;
-    QLabel *label_3;
-    QLabel *label_2;
-    QLabel *label;
     QDoubleSpinBox *dy_box;
-    QDoubleSpinBox *dz_box;
     QDoubleSpinBox *dx_box;
+    QDoubleSpinBox *dz_box;
     QPushButton *move_btn;
     QFrame *frame_2;
     QGridLayout *gridLayout_6;
@@ -67,21 +62,12 @@ public:
     QLabel *label_11;
     QPushButton *down_btn;
     Display *display;
-    QFrame *frame_5;
-    QVBoxLayout *verticalLayout_3;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_8;
-    QLabel *curr_camera_lbl;
-    QPushButton *change_camera_btn;
-    QFrame *frame_6;
-    QVBoxLayout *verticalLayout_4;
-    QHBoxLayout *horizontalLayout;
+    QPushButton *change_model_btn;
     QLabel *label_9;
     QLabel *curr_model_lbl;
-    QPushButton *change_model_btn;
-    QFrame *frame;
-    QVBoxLayout *verticalLayout_2;
-    QLabel *label_7;
+    QPushButton *change_camera_btn;
+    QLabel *label_8;
+    QLabel *curr_camera_lbl;
     QListWidget *objects_list;
     QPushButton *remove_object_btn;
     QPushButton *clear_scene_btn;
@@ -91,7 +77,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1220, 508);
+        MainWindow->resize(1308, 508);
         QPalette palette;
         QBrush brush(QColor(114, 159, 207, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -143,7 +129,7 @@ public:
         left_btn->setFont(font);
         load_camera_btn = new QPushButton(centralwidget);
         load_camera_btn->setObjectName(QString::fromUtf8("load_camera_btn"));
-        load_camera_btn->setGeometry(QRect(1040, 330, 83, 24));
+        load_camera_btn->setGeometry(QRect(950, 130, 201, 24));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Ubuntu"));
         font1.setPointSize(10);
@@ -154,11 +140,11 @@ public:
         right_btn->setFont(font);
         add_camera_btn = new QPushButton(centralwidget);
         add_camera_btn->setObjectName(QString::fromUtf8("add_camera_btn"));
-        add_camera_btn->setGeometry(QRect(1130, 330, 80, 24));
+        add_camera_btn->setGeometry(QRect(950, 160, 201, 24));
         add_camera_btn->setFont(font1);
         load_model_btn = new QPushButton(centralwidget);
         load_model_btn->setObjectName(QString::fromUtf8("load_model_btn"));
-        load_model_btn->setGeometry(QRect(950, 330, 80, 24));
+        load_model_btn->setGeometry(QRect(950, 100, 201, 24));
         load_model_btn->setFont(font1);
         frame_4 = new QFrame(centralwidget);
         frame_4->setObjectName(QString::fromUtf8("frame_4"));
@@ -184,66 +170,26 @@ public:
         move_label->setFrameShadow(QFrame::Raised);
         gridLayout_5 = new QGridLayout(move_label);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        label_3 = new QLabel(move_label);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("Arial"));
-        font2.setPointSize(10);
-        label_3->setFont(font2);
-
-        gridLayout_5->addWidget(label_3, 2, 0, 1, 1);
-
-        label_2 = new QLabel(move_label);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font2);
-
-        gridLayout_5->addWidget(label_2, 1, 0, 1, 1);
-
-        label = new QLabel(move_label);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font2);
-
-        gridLayout_5->addWidget(label, 0, 0, 1, 1);
-
         dy_box = new QDoubleSpinBox(move_label);
         dy_box->setObjectName(QString::fromUtf8("dy_box"));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Arial"));
-        font3.setPointSize(11);
-        dy_box->setFont(font3);
-        dy_box->setLocale(QLocale(QLocale::English, QLocale::Canada));
-        dy_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dy_box->setMinimum(-10000000000000000000000.000000000000000);
-        dy_box->setMaximum(10000000000000000000000.000000000000000);
 
-        gridLayout_5->addWidget(dy_box, 1, 1, 1, 1);
-
-        dz_box = new QDoubleSpinBox(move_label);
-        dz_box->setObjectName(QString::fromUtf8("dz_box"));
-        dz_box->setFont(font3);
-        dz_box->setLocale(QLocale(QLocale::English, QLocale::Canada));
-        dz_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dz_box->setMinimum(-99999999999999991611392.000000000000000);
-        dz_box->setMaximum(10000000000000000.000000000000000);
-
-        gridLayout_5->addWidget(dz_box, 2, 1, 1, 1);
+        gridLayout_5->addWidget(dy_box, 4, 0, 1, 1);
 
         dx_box = new QDoubleSpinBox(move_label);
         dx_box->setObjectName(QString::fromUtf8("dx_box"));
-        dx_box->setMinimumSize(QSize(0, 1));
-        dx_box->setFont(font3);
-        dx_box->setLocale(QLocale(QLocale::English, QLocale::Canada));
-        dx_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
-        dx_box->setMinimum(-10000000000000000.000000000000000);
-        dx_box->setMaximum(10000000000000000.000000000000000);
 
-        gridLayout_5->addWidget(dx_box, 0, 1, 1, 1);
+        gridLayout_5->addWidget(dx_box, 5, 0, 1, 1);
+
+        dz_box = new QDoubleSpinBox(move_label);
+        dz_box->setObjectName(QString::fromUtf8("dz_box"));
+
+        gridLayout_5->addWidget(dz_box, 3, 0, 1, 1);
 
         move_btn = new QPushButton(move_label);
         move_btn->setObjectName(QString::fromUtf8("move_btn"));
         move_btn->setFont(font);
 
-        gridLayout_5->addWidget(move_btn, 3, 0, 1, 2);
+        gridLayout_5->addWidget(move_btn, 6, 0, 1, 1);
 
         frame_2 = new QFrame(frame_4);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
@@ -257,6 +203,9 @@ public:
         gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
         label_5 = new QLabel(frame_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("Arial"));
+        font2.setPointSize(10);
         label_5->setFont(font2);
 
         gridLayout_6->addWidget(label_5, 1, 0, 1, 1);
@@ -269,11 +218,15 @@ public:
 
         ky_box = new QDoubleSpinBox(frame_2);
         ky_box->setObjectName(QString::fromUtf8("ky_box"));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Arial"));
+        font3.setPointSize(11);
         ky_box->setFont(font3);
         ky_box->setLocale(QLocale(QLocale::English, QLocale::Canada));
         ky_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
         ky_box->setMinimum(0.000000000000000);
         ky_box->setMaximum(10000000000000000000000.000000000000000);
+        ky_box->setValue(1.000000000000000);
 
         gridLayout_6->addWidget(ky_box, 1, 1, 1, 1);
 
@@ -284,6 +237,7 @@ public:
         kx_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
         kx_box->setMinimum(0.000000000000000);
         kx_box->setMaximum(10000000000000000.000000000000000);
+        kx_box->setValue(1.000000000000000);
 
         gridLayout_6->addWidget(kx_box, 0, 1, 1, 1);
 
@@ -300,6 +254,7 @@ public:
         kz_box->setButtonSymbols(QAbstractSpinBox::NoButtons);
         kz_box->setMinimum(0.000000000000000);
         kz_box->setMaximum(10000000000000000.000000000000000);
+        kz_box->setValue(1.000000000000000);
 
         gridLayout_6->addWidget(kz_box, 2, 1, 1, 1);
 
@@ -378,134 +333,71 @@ public:
 
         down_btn = new QPushButton(centralwidget);
         down_btn->setObjectName(QString::fromUtf8("down_btn"));
-        down_btn->setGeometry(QRect(1040, 390, 80, 23));
+        down_btn->setGeometry(QRect(1040, 420, 80, 23));
         down_btn->setFont(font);
         display = new Display(centralwidget);
         display->setObjectName(QString::fromUtf8("display"));
         display->setGeometry(QRect(10, 10, 691, 461));
         display->setFont(font);
-        frame_5 = new QFrame(centralwidget);
-        frame_5->setObjectName(QString::fromUtf8("frame_5"));
-        frame_5->setGeometry(QRect(950, 180, 261, 68));
-        frame_5->setFont(font);
-        frame_5->setFrameShape(QFrame::StyledPanel);
-        frame_5->setFrameShadow(QFrame::Raised);
-        verticalLayout_3 = new QVBoxLayout(frame_5);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_8 = new QLabel(frame_5);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setFont(font3);
-        label_8->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_2->addWidget(label_8);
-
-        curr_camera_lbl = new QLabel(frame_5);
-        curr_camera_lbl->setObjectName(QString::fromUtf8("curr_camera_lbl"));
+        change_model_btn = new QPushButton(centralwidget);
+        change_model_btn->setObjectName(QString::fromUtf8("change_model_btn"));
+        change_model_btn->setGeometry(QRect(1220, 270, 71, 21));
+        change_model_btn->setFont(font);
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setGeometry(QRect(950, 260, 101, 41));
+        label_9->setFont(font3);
+        label_9->setAlignment(Qt::AlignCenter);
+        curr_model_lbl = new QLabel(centralwidget);
+        curr_model_lbl->setObjectName(QString::fromUtf8("curr_model_lbl"));
+        curr_model_lbl->setGeometry(QRect(1080, 270, 131, 20));
         QFont font4;
         font4.setFamily(QString::fromUtf8("Arial"));
         font4.setPointSize(11);
         font4.setBold(true);
         font4.setWeight(75);
-        curr_camera_lbl->setFont(font4);
-        curr_camera_lbl->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_2->addWidget(curr_camera_lbl);
-
-
-        verticalLayout_3->addLayout(horizontalLayout_2);
-
-        change_camera_btn = new QPushButton(frame_5);
-        change_camera_btn->setObjectName(QString::fromUtf8("change_camera_btn"));
-        change_camera_btn->setFont(font);
-
-        verticalLayout_3->addWidget(change_camera_btn);
-
-        frame_6 = new QFrame(centralwidget);
-        frame_6->setObjectName(QString::fromUtf8("frame_6"));
-        frame_6->setGeometry(QRect(950, 250, 261, 68));
-        frame_6->setFont(font);
-        frame_6->setFrameShape(QFrame::StyledPanel);
-        frame_6->setFrameShadow(QFrame::Raised);
-        verticalLayout_4 = new QVBoxLayout(frame_6);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label_9 = new QLabel(frame_6);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font3);
-        label_9->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout->addWidget(label_9);
-
-        curr_model_lbl = new QLabel(frame_6);
-        curr_model_lbl->setObjectName(QString::fromUtf8("curr_model_lbl"));
         curr_model_lbl->setFont(font4);
         curr_model_lbl->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout->addWidget(curr_model_lbl);
-
-
-        verticalLayout_4->addLayout(horizontalLayout);
-
-        change_model_btn = new QPushButton(frame_6);
-        change_model_btn->setObjectName(QString::fromUtf8("change_model_btn"));
-        change_model_btn->setFont(font);
-
-        verticalLayout_4->addWidget(change_model_btn);
-
-        frame = new QFrame(centralwidget);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(950, 10, 261, 166));
-        frame->setFont(font);
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        verticalLayout_2 = new QVBoxLayout(frame);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        label_7 = new QLabel(frame);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font);
-        label_7->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_2->addWidget(label_7);
-
-        objects_list = new QListWidget(frame);
+        change_camera_btn = new QPushButton(centralwidget);
+        change_camera_btn->setObjectName(QString::fromUtf8("change_camera_btn"));
+        change_camera_btn->setGeometry(QRect(1220, 210, 71, 22));
+        change_camera_btn->setFont(font);
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+        label_8->setGeometry(QRect(950, 200, 117, 46));
+        label_8->setFont(font3);
+        label_8->setAlignment(Qt::AlignCenter);
+        curr_camera_lbl = new QLabel(centralwidget);
+        curr_camera_lbl->setObjectName(QString::fromUtf8("curr_camera_lbl"));
+        curr_camera_lbl->setGeometry(QRect(1068, 200, 151, 46));
+        curr_camera_lbl->setFont(font4);
+        curr_camera_lbl->setAlignment(Qt::AlignCenter);
+        objects_list = new QListWidget(centralwidget);
         objects_list->setObjectName(QString::fromUtf8("objects_list"));
+        objects_list->setGeometry(QRect(950, 20, 200, 70));
         QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Expanding);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(objects_list->sizePolicy().hasHeightForWidth());
         objects_list->setSizePolicy(sizePolicy3);
         objects_list->setMaximumSize(QSize(200, 300));
-
-        verticalLayout_2->addWidget(objects_list);
-
-        remove_object_btn = new QPushButton(frame);
+        remove_object_btn = new QPushButton(centralwidget);
         remove_object_btn->setObjectName(QString::fromUtf8("remove_object_btn"));
+        remove_object_btn->setGeometry(QRect(1160, 70, 101, 22));
         remove_object_btn->setFont(font);
-
-        verticalLayout_2->addWidget(remove_object_btn);
-
-        clear_scene_btn = new QPushButton(frame);
+        clear_scene_btn = new QPushButton(centralwidget);
         clear_scene_btn->setObjectName(QString::fromUtf8("clear_scene_btn"));
+        clear_scene_btn->setGeometry(QRect(1160, 20, 101, 22));
         QSizePolicy sizePolicy4(QSizePolicy::Ignored, QSizePolicy::Fixed);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
         sizePolicy4.setHeightForWidth(clear_scene_btn->sizePolicy().hasHeightForWidth());
         clear_scene_btn->setSizePolicy(sizePolicy4);
         clear_scene_btn->setFont(font);
-
-        verticalLayout_2->addWidget(clear_scene_btn);
-
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-        QWidget::setTabOrder(dx_box, dy_box);
-        QWidget::setTabOrder(dy_box, dz_box);
-        QWidget::setTabOrder(dz_box, move_btn);
-        QWidget::setTabOrder(move_btn, kx_box);
         QWidget::setTabOrder(kx_box, ky_box);
         QWidget::setTabOrder(ky_box, kz_box);
         QWidget::setTabOrder(kz_box, scale_btn);
@@ -513,9 +405,7 @@ public:
         QWidget::setTabOrder(ax_box, ay_box);
         QWidget::setTabOrder(ay_box, az_box);
         QWidget::setTabOrder(az_box, rotate_btn);
-        QWidget::setTabOrder(rotate_btn, remove_object_btn);
-        QWidget::setTabOrder(remove_object_btn, change_camera_btn);
-        QWidget::setTabOrder(change_camera_btn, left_btn);
+        QWidget::setTabOrder(rotate_btn, left_btn);
         QWidget::setTabOrder(left_btn, up_btn);
         QWidget::setTabOrder(up_btn, load_model_btn);
         QWidget::setTabOrder(load_model_btn, add_camera_btn);
@@ -539,9 +429,9 @@ public:
         right_btn->setText(QCoreApplication::translate("MainWindow", "\342\226\266", nullptr));
         add_camera_btn->setText(QCoreApplication::translate("MainWindow", "Add Camera", nullptr));
         load_model_btn->setText(QCoreApplication::translate("MainWindow", "Load model", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", " dz", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", " dy", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", " dx", nullptr));
+        dy_box->setPrefix(QCoreApplication::translate("MainWindow", "dy: ", nullptr));
+        dx_box->setPrefix(QCoreApplication::translate("MainWindow", "dx: ", nullptr));
+        dz_box->setPrefix(QCoreApplication::translate("MainWindow", "dz: ", nullptr));
         move_btn->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", " ky", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", " kx", nullptr));
@@ -552,13 +442,12 @@ public:
         rotate_btn->setText(QCoreApplication::translate("MainWindow", "Rotate", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "ax", nullptr));
         down_btn->setText(QCoreApplication::translate("MainWindow", "\342\254\207", nullptr));
-        label_8->setText(QCoreApplication::translate("MainWindow", "Current camera:", nullptr));
-        curr_camera_lbl->setText(QCoreApplication::translate("MainWindow", "None", nullptr));
-        change_camera_btn->setText(QCoreApplication::translate("MainWindow", "Change", nullptr));
+        change_model_btn->setText(QCoreApplication::translate("MainWindow", "Change", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "Current figure:", nullptr));
         curr_model_lbl->setText(QCoreApplication::translate("MainWindow", "None", nullptr));
-        change_model_btn->setText(QCoreApplication::translate("MainWindow", "Change", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "Scene objects", nullptr));
+        change_camera_btn->setText(QCoreApplication::translate("MainWindow", "Change", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "Current camera:", nullptr));
+        curr_camera_lbl->setText(QCoreApplication::translate("MainWindow", "None", nullptr));
         remove_object_btn->setText(QCoreApplication::translate("MainWindow", "Remove", nullptr));
         clear_scene_btn->setText(QCoreApplication::translate("MainWindow", "Clear scene", nullptr));
     } // retranslateUi
@@ -571,4 +460,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // DESIGNQLCTAK_H
+#endif // DESIGNWODTXS_H

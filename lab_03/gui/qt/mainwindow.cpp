@@ -32,6 +32,7 @@
 using namespace std;
 
 
+
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     this->ui->setupUi(this);
     this->setupScene();
@@ -105,7 +106,8 @@ void MainWindow::on_move_btn_clicked() {
     if (!this->checkCamAndModel()) return;
 
     shared_ptr<Object> model = make_shared<WireframeModel>();
-    auto get_model_cmd = make_shared<GetSceneObject>(model, this->getCurrModelID());
+    
+    auto get_model_cmd = make_shared<GetSceneObject>(model, 0);
     this->facade->execute(get_model_cmd);
 
     auto move_model_cmd = make_shared<MoveModel>(model, this->ui->dx_box->value(),
@@ -124,25 +126,31 @@ void MainWindow::on_scale_btn_clicked() {
     if (!this->checkCamAndModel()) return;
 
     shared_ptr<Object> model = make_shared<WireframeModel>();
-    auto get_model_cmd = make_shared<GetSceneObject>(model, this->getCurrModelID());
-    this->facade->execute(get_model_cmd);
+    auto obj_list = this->ui->objects_list;
+    for (int i = 1; i < obj_list->count(); i++)
+    {
+        auto get_model_cmd = make_shared<GetSceneObject>(model, i);
+        this->facade->execute(get_model_cmd);
 
-    auto scale_model_cmd = std::make_shared<ScaleModel>(model, this->ui->kx_box->value(),this->ui->ky_box->value(),  this->ui->kz_box->value());
-    try
-    {
-        this->facade->execute(scale_model_cmd);
-        //this->updateScene();
-    } catch (const BaseException &ex)
-    {
-        QMessageBox::warning(this, "Error", QString(ex.what()));
+        auto scale_model_cmd = std::make_shared<ScaleModel>(model, this->ui->kx_box->value(),this->ui->ky_box->value(),  this->ui->kz_box->value());
+        try
+        {
+            this->facade->execute(scale_model_cmd);
+            this->updateScene();
+        } catch (const BaseException &ex)
+        {
+            QMessageBox::warning(this, "Error", QString(ex.what()));
+        }
     }
 }
 
 void MainWindow::on_rotate_btn_clicked() {
     if (!this->checkCamAndModel()) return;
-
+    auto obj_list = this->ui->objects_list;
+    for (int i = 1; i < obj_list->count(); i++)
+    { 
     shared_ptr<Object> model = make_shared<WireframeModel>();
-    auto get_model_cmd = make_shared<GetSceneObject>(model, this->getCurrModelID());
+    auto get_model_cmd = make_shared<GetSceneObject>(model, i);
     this->facade->execute(get_model_cmd);
 
     auto rotate_model_cmd = std::make_shared<RotateModel>(model, this->ui->ax_box->value(),
@@ -154,6 +162,7 @@ void MainWindow::on_rotate_btn_clicked() {
     } catch (BaseException &ex)
     {
         QMessageBox::warning(this, "Error", QString(ex.what()));
+    }
     }
 }
 
