@@ -16,10 +16,10 @@ void DirectorSolution::initByConfig() {
 	{
 		std::string src_name = CONFIG_CAMERA_PATH;
 		std::shared_ptr<std::ifstream> src_file = std::make_shared<std::ifstream>(src_name);
-		if (!(*(src_file))) throw FileOpenError(__FILE__, __LINE__, "could not open config file!");
+		//if (!(*(src_file))) throw FileOpenError(__FILE__, __LINE__, "could not open config file!");
 
-		size_t id = 0;
-		if (!(*(src_file) >> id)) throw FileFormatError(__FILE__, __LINE__, "bad format of config file");
+		size_t id = 1;
+		//if (!(*(src_file) >> id)) throw FileFormatError(__FILE__, __LINE__, "bad format of config file");
 		this->registration<CameraDirector>(id);
 
 		src_file->close();
@@ -27,10 +27,10 @@ void DirectorSolution::initByConfig() {
 	{
 		std::string src_name = CONFIG_MODEL_PATH;
 		std::shared_ptr<std::ifstream> src_file = std::make_shared<std::ifstream>(src_name);
-		if (!(*(src_file))) throw FileOpenError(__FILE__, __LINE__, "could not open config file!");
+		//if (!(*(src_file))) throw FileOpenError(__FILE__, __LINE__, "could not open config file!");
 
-		size_t id = 0;
-		if (!(*(src_file) >> id)) throw FileFormatError(__FILE__, __LINE__, "bad format of config file");
+		size_t id = 2;
+		//if (!(*(src_file) >> id)) throw FileFormatError(__FILE__, __LINE__, "bad format of config file");
 		this->registration<WireframeModelDirector>(id);
 
 		src_file->close();
