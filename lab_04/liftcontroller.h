@@ -46,4 +46,4 @@ private:
     bool be_target(int &new_floor_target);
 };
 
-#endif // LIFTCONTROLLER_H
+#endif
