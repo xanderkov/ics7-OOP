@@ -32,7 +32,7 @@ void LiftCabin::lifcabin_move()
         this->current_state = MOVE;
         cabin_move_timer.start(FLOOR_CROSS_TIME);
 
-        std::cout << "Лифт отправляется с этажа № " << this->current_floor;
+        std::cout << "Лифт в пути на этаже № " << this->current_floor << "\n";
         emit pass_floor_signal(current_floor, this->cabin_direction);
 
         if (current_floor == need_floor)
@@ -47,7 +47,7 @@ void LiftCabin::lifcabin_move()
             this->cabin_direction = UP;
             this->current_floor = current_floor + 1;
         }
-   }
+    }
 }
 
 void LiftCabin::liftcabin_stop(bool last, int floor)
@@ -59,6 +59,7 @@ void LiftCabin::liftcabin_stop(bool last, int floor)
         this->current_state = WAIT;
         this->need_floor = floor;
     }
+
     this->cabin_move_timer.stop();
     emit door_open_signal();
 }

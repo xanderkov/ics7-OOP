@@ -32,7 +32,7 @@ void LiftController::new_target_slot(int floor)
     be_target(floor);
 
     this->need_floor = floor;
-    emit new_target_slot(floor);
+    emit new_target_signal(floor);
 }
 
 void LiftController::pass_floor_slot(int floor, Direction dir)
@@ -44,8 +44,16 @@ void LiftController::pass_floor_slot(int floor, Direction dir)
 
     if (current_floor != need_floor)
         return;
+    if (this->current_state != BUSY)
+        return;
 
-    std::cout << "Лифт приехал на этаж № " << floor;
+    this->current_floor = floor;
+    this->control_direction = dir;
+
+    if (current_floor != need_floor)
+        return;
+
+    std::cout << "Лифт приехал на этаж № " << floor << "\n";
 
     emit this->button_arr[floor - 1]->unpress_signal();
     this->visit_floor_arr[floor - 1] = true;
@@ -71,12 +79,11 @@ bool LiftController::be_target(int &new_floor_target)
         dir = DOWN;
 
     for (int i = this->current_floor - 1; i >= 0 && i < ALL_FLOORS; i += dir)
-    {
         if (!this->visit_floor_arr[i])
         {
             new_floor_target = i + 1;
             return true;
         }
-    }
+
     return false;
 }

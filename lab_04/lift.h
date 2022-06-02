@@ -10,6 +10,7 @@ class Lift : public QObject
 public:
     explicit Lift(QObject *parent = nullptr);
     ~Lift() = default;
+
     QWidget *widget();
 
 private:

@@ -30,6 +30,7 @@ public slots:
 
 private:
     ButtonState current_state;
+
     int current_button_floor;
 };
 

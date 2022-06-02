@@ -35,6 +35,7 @@ public slots:
 private:
     int current_floor;
     int need_floor;
+
     LiftControllerState current_state;
     Direction control_direction;
 

@@ -22,10 +22,10 @@ void Button::press()
     if (current_state != NOTACTIVE)
         return;
 
-    this->setStyleSheet("background-color:red;");
+    this->setStyleSheet("background-color:yellow;");
     this->update();
 
-    std::cout << "Вызов этажа № " << this->current_button_floor;
+    std::cout << "Вызов этажа № " << this->current_button_floor << "\n";
 
     this->current_state = ACTIVE;
     this->setDisabled(true);
@@ -35,7 +35,7 @@ void Button::press()
 
 void Button::unpress()
 {
-    if (current_button_floor != ACTIVE)
+    if (current_state != ACTIVE)
         return;
 
     this->setStyleSheet("background-color:blue;");

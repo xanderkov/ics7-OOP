@@ -10,8 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     this->setFixedSize(500, 500);
-    this->_layout = std::unique_ptr<QVBoxLayout>(new QVBoxLayout);
+    this->_layout= std::unique_ptr<QVBoxLayout>(new QVBoxLayout);
+
     this->ui->centralwidget->setLayout(this->_layout.get());
+
     this->_layout->addWidget(this->my_lift.widget());
 }
 

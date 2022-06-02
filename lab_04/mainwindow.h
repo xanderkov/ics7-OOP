@@ -21,7 +21,7 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    std::unique_ptr<QBoxLayout> _layout;
+    std::unique_ptr<QVBoxLayout> _layout;
     Lift my_lift;
 };
 #endif // MAINWINDOW_H

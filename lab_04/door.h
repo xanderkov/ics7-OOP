@@ -26,6 +26,7 @@ private slots:
     void openning();
     void closing();
 
+
 public slots:
     void open();
     void close();
@@ -37,7 +38,6 @@ private:
     QTimer open_timer;
     QTimer close_timer;
     QTimer wait_timer;
-
 };
 
 #endif // DOOR_H

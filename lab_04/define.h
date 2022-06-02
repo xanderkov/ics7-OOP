@@ -14,6 +14,7 @@ enum Direction
 #define START_FLOOR 1
 #define ALL_FLOORS 13
 #define FLOOR_CROSS_TIME 1000
+#define LIFT_WAIT_TIME 1000
 #define DOOR_TIME 1000
 
 #endif // DEFINE_H

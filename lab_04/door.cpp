@@ -25,7 +25,7 @@ void Door::openning()
 {
     if (current_state == CLOSED || current_state == CLOSING)
     {
-        std::cout << "Двери открываются";
+        std::cout << "Двери открываются\n";
 
         if (this->current_state == CLOSED)
         {
@@ -48,7 +48,7 @@ void Door::open()
     if (current_state != OPENNING)
         return;
     this->current_state = OPENED;
-    std::cout << "Двери открыты";
+    std::cout << "Двери открыты\n";
     this->wait_timer.start(DOOR_TIME);
 }
 
@@ -57,7 +57,7 @@ void Door::closing()
     if (current_state != OPENED)
         return;
     this->current_state = CLOSING;
-    std::cout << "Двери закрываются";
+    std::cout << "Двери закрываются\n";
     this->close_timer.start(DOOR_TIME);
 }
 
@@ -66,6 +66,6 @@ void Door::close()
     if (current_state != CLOSING)
         return;
     this->current_state = CLOSED;
-    std::cout << "Двери закрыты";
+    std::cout << "Двери закрыты\n";
     emit closed_door_signal();
 }
