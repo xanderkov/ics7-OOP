@@ -24,9 +24,7 @@ void Button::press()
 
     this->setStyleSheet("background-color:yellow;");
     this->update();
-
     std::cout << "Вызов этажа № " << this->current_button_floor << "\n";
-
     this->current_state = ACTIVE;
     this->setDisabled(true);
 
