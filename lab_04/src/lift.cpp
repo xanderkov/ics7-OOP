@@ -1,4 +1,4 @@
-#include "lift.h"
+#include "../inc/lift.h"
 
 Lift::Lift(QObject *parent)
     : QObject{parent}

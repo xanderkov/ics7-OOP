@@ -1,4 +1,4 @@
-#include "liftcabin.h"
+#include "../inc/liftcabin.h"
 #include <iostream>
 
 LiftCabin::LiftCabin(QObject *parent)

@@ -1,4 +1,4 @@
-#include "liftcontroller.h"
+#include "../inc/liftcontroller.h"
 #include <iostream>
 
 LiftController::LiftController(QWidget *parent)

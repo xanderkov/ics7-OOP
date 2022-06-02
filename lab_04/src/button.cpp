@@ -1,4 +1,4 @@
-#include "button.h"
+#include "../inc/button.h"
 #include <iostream>
 
 Button::Button(QWidget *parent) : QPushButton(parent)

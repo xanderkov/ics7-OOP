@@ -1,4 +1,4 @@
-#include "door.h"
+#include "../inc/door.h"
 #include <iostream>
 
 Door::Door()
