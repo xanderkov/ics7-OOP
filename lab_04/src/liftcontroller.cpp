@@ -44,14 +44,6 @@ void LiftController::pass_floor_slot(int floor, Direction dir)
 
     if (current_floor != need_floor)
         return;
-    if (this->current_state != BUSY)
-        return;
-
-    this->current_floor = floor;
-    this->control_direction = dir;
-
-    if (current_floor != need_floor)
-        return;
 
     std::cout << "Лифт приехал на этаж № " << floor << "\n";
 
