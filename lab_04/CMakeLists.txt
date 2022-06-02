@@ -19,6 +19,13 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        lift.cpp
+        lift.h
+        liftcabin.h liftcabin.cpp
+        liftcontroller.h liftcontroller.cpp
+        define.h
+        button.h button.cpp
+        door.h door.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
