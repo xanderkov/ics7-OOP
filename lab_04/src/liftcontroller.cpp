@@ -76,6 +76,13 @@ bool LiftController::be_target(int &new_floor_target)
             new_floor_target = i + 1;
             return true;
         }
+    
+    for (int i = this->current_floor - 1; i >= 0 && i < ALL_FLOORS; i -= dir)
+        if (!this->visit_floor_arr[i])
+        {
+            new_floor_target = i + 1;
+            return true;
+        }
 
     return false;
 }
