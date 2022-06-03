@@ -15,7 +15,7 @@ add_executable(${PROJECT_NAME}
         src/main.cpp
         src/mainwindow.cpp
         inc/mainwindow.h
-        mainwindow.ui
+        gui/mainwindow.ui
         src/lift.cpp
         inc/lift.h
         inc/liftcabin.h src/liftcabin.cpp
