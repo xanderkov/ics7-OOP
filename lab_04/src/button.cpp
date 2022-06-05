@@ -28,7 +28,7 @@ void Button::press()
     this->current_state = ACTIVE;
     this->setDisabled(true);
 
-    emit press_signal(this->current_button_floor);
+    emit press_signal(true, this->current_button_floor);
 }
 
 void Button::unpress()

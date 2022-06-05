@@ -25,12 +25,13 @@ public:
     ~LiftController() = default;
 
 signals:
-    void new_target_signal(int floor);
-    void stop_signal(bool f, int t = 1);
+    void reach_floor_signal();
+    void stop_signal();
+    void move_signal();
 
 public slots:
-    void new_target_slot(int floor);
-    void pass_floor_slot(int floor, Direction dir);
+    void reach_floor();
+    void new_target_slot(bool got_new, int floor);
 
 private:
     int current_floor;
@@ -44,6 +45,10 @@ private:
     std::unique_ptr<QVBoxLayout> layout;
 
     bool be_target(int &new_floor_target);
+
+    void update_direction();
+    void update_floor();
+    
 };
 
 #endif

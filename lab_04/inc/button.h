@@ -21,7 +21,7 @@ public:
     void set_floor(const int &floor);
 
 signals:
-    void press_signal(int floor);
+    void press_signal(bool, int floor);
     void unpress_signal();
 
 public slots:
