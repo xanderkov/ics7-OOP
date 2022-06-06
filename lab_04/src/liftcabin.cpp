@@ -21,7 +21,6 @@ void LiftCabin::lifcabin_move()
     if (this->current_state != FREE)
         return;
     this->current_state = MOVE;
-    std::cout << "Лифт начинает движение\n";
     cabin_move_timer.start(FLOOR_CROSS_TIME);
 }
 

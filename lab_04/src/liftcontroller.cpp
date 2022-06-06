@@ -116,6 +116,5 @@ void LiftController::reach_floor()
     visit_floor_arr[need_floor - 1] = true;
     emit this->button_arr[current_floor - 1]->unpress_signal();
     be_target(need_floor);
-    control_direction = STAY;
     emit stop_signal();
 }
