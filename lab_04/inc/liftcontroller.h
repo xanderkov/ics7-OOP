@@ -46,7 +46,7 @@ private:
 
     bool be_target(int &new_floor_target);
 
-    void update_direction();
+    Direction update_direction();
     void update_floor();
     
 };

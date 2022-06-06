@@ -7,6 +7,7 @@ LiftController::LiftController(QWidget *parent)
     this->layout = std::unique_ptr<QVBoxLayout>(new QVBoxLayout);
     this->setLayout(this->layout.get());
     this->current_floor = 1;
+    this->control_direction = UP;
     for (int i = 0; i < ALL_FLOORS; ++i)
     {
         std::shared_ptr<Button> new_button(new Button);
@@ -28,26 +29,24 @@ LiftController::LiftController(QWidget *parent)
 void LiftController::new_target_slot(bool got_new, int floor)
 {
     this->current_state = BUSY;
-
+    Direction dir;
     if (got_new)
     {
         visit_floor_arr[floor - 1] = false;
         be_target(need_floor);
-        //std::cout << "Лифт получил цель этаж № " << this->need_floor << "\n";
-        update_direction();
-        if (control_direction == STAY)
+        dir = update_direction();
+        if (dir == STAY)
             emit reach_floor_signal();
         else
             emit move_signal();
     }
     else if (be_target(need_floor))
     {
-        update_direction();
+        dir = update_direction();
 
-        if (control_direction != STAY)
+        if (dir != STAY)
         {
-            current_floor += control_direction;
-            std::cout << "Лифт в пути на этаже № " << this->current_floor << "\n";
+            update_floor();
             emit move_signal();
         }
         else
@@ -60,34 +59,35 @@ void LiftController::new_target_slot(bool got_new, int floor)
 void LiftController::update_floor()
 {
     this->current_floor += this->control_direction;
-    update_direction();
+    Direction dir = update_direction();
 
-    if (this->control_direction != STAY)
+    if (dir!= STAY)
         std::cout << "Лифт в пути на этаже № " << this->current_floor << "\n";
 }
 
-void LiftController::update_direction()
+Direction LiftController::update_direction()
 {
+    Direction dir;
     if (this->need_floor < this->current_floor)
-        this->control_direction = DOWN;
+        dir = DOWN;
     else if (this->need_floor > this->current_floor)
-        this->control_direction = UP;
+        dir = UP;
     else
-        this->control_direction = STAY;
+        dir = STAY;
+    return dir;
 }
 
 
 bool LiftController::be_target(int &new_floor_target)
 {
-    int dir;
+    int dir = DOWN;
     if (this->control_direction != STAY)
         dir = control_direction;
-    else
-        dir = DOWN;
 
     for (int i = this->current_floor - 1; i >= 0 && i < ALL_FLOORS; i += dir)
         if (!this->visit_floor_arr[i])
         {
+            this->control_direction = ((dir == UP) ? UP : DOWN);
             new_floor_target = i + 1;
             return true;
         }
@@ -95,9 +95,11 @@ bool LiftController::be_target(int &new_floor_target)
     for (int i = this->current_floor - 1; i >= 0 && i < ALL_FLOORS; i -= dir)
         if (!this->visit_floor_arr[i])
         {
+            this->control_direction = ((dir == UP) ? DOWN : UP);
             new_floor_target = i + 1;
             return true;
         }
+    this->control_direction = STAY;
 
     return false;
 }
@@ -114,6 +116,6 @@ void LiftController::reach_floor()
     visit_floor_arr[need_floor - 1] = true;
     emit this->button_arr[current_floor - 1]->unpress_signal();
     be_target(need_floor);
-
+    control_direction = STAY;
     emit stop_signal();
 }
