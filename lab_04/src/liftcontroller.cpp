@@ -46,8 +46,8 @@ void LiftController::new_target_slot(bool got_new, int floor)
 
         if (dir != STAY)
         {
-            update_floor();
             emit move_signal();
+            update_floor();
         }
         else
         {
